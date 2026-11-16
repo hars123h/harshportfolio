@@ -494,7 +494,8 @@ html.lenis,html.lenis body{height:auto}
 .menu-btn span:nth-child(1){top:16px}.menu-btn span:nth-child(2){top:23px}
 .menu-btn[aria-expanded="true"] span:nth-child(1){top:19.5px;transform:rotate(45deg)}
 .menu-btn[aria-expanded="true"] span:nth-child(2){top:19.5px;transform:rotate(-45deg)}
-.menu{position:fixed;inset:0;z-index:45;background:var(--bg);padding:110px 24px calc(env(safe-area-inset-bottom) + 28px);display:flex;flex-direction:column;justify-content:space-between;
+/* content sits under the links (not pinned to the screen bottom, where browser toolbars cover it); scrolls inside on short screens */
+.menu{position:fixed;inset:0;z-index:45;background:var(--bg);padding:100px 24px calc(env(safe-area-inset-bottom) + 90px);display:flex;flex-direction:column;justify-content:flex-start;gap:40px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
   clip-path:circle(0 at calc(100% - 44px) 44px);visibility:hidden;transition:clip-path .7s cubic-bezier(.77,0,.18,1),visibility 0s linear .7s}
 .menu.open{clip-path:circle(150% at calc(100% - 44px) 44px);visibility:visible;transition:clip-path .7s cubic-bezier(.77,0,.18,1),visibility 0s}
 .menu nav{display:flex;flex-direction:column;gap:4px}
@@ -502,7 +503,9 @@ html.lenis,html.lenis body{height:auto}
 .menu nav a i{font-style:normal;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--mint);vertical-align:top;margin-right:10px}
 .menu.open nav a{opacity:1;translate:0 0}
 .menu.open nav a:nth-child(2){transition-delay:.06s}.menu.open nav a:nth-child(3){transition-delay:.12s}.menu.open nav a:nth-child(4){transition-delay:.18s}.menu.open nav a:nth-child(5){transition-delay:.24s}
-.mfoot{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:6px}
+.mfoot{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:6px;padding-top:22px;border-top:1px solid rgba(207,238,224,.16)}
+/* the phone action bar must never cover the open menu */
+html.menu-open .mbar{visibility:hidden;transform:translateY(calc(100% + 40px + env(safe-area-inset-bottom)));transition:none}
 
 /* hero headline */
 .hl-hero{position:absolute;left:4vw;bottom:9vh;width:min(29vw,440px);z-index:7;will-change:transform,opacity}
@@ -1410,7 +1413,8 @@ addEventListener('hashchange', applyHash);
 
 /* ---------- nav: scrolled state, active section, mobile menu ---------- */
 const topBar = $('.top');
-addEventListener('scroll', () => topBar.classList.toggle('scrolled', scrollY > 40), {passive:true});
+let locked = false, lockY = 0;
+addEventListener('scroll', () => { if(!locked) topBar.classList.toggle('scrolled', scrollY > 40); }, {passive:true});
 const navLinks = [...document.querySelectorAll('.links a')];
 if(window.IntersectionObserver){
   const io = new IntersectionObserver(es => es.forEach(en => {
@@ -1423,7 +1427,18 @@ function setMenu(open){
   menu.classList.toggle('open', open);
   menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-  if(lenis){ open ? lenis.stop() : lenis.start(); } else document.body.style.overflow = open ? 'hidden' : '';
+  document.documentElement.classList.toggle('menu-open', open);
+  if(lenis){ open ? lenis.stop() : lenis.start(); return; }
+  /* phones: overflow:hidden doesn't stop iOS from scrolling the page behind, so pin the body in place */
+  const b = document.body.style;
+  if(open && !locked){
+    locked = true; lockY = scrollY;
+    Object.assign(b, {position:'fixed', top:-lockY+'px', left:'0', right:'0', width:'100%'});
+  } else if(!open && locked){
+    Object.assign(b, {position:'', top:'', left:'', right:'', width:''});
+    scrollTo({top:lockY, behavior:'instant'});
+    locked = false;
+  }
 }
 menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
 menu.addEventListener('click', e => { if(e.target.closest('a')) setMenu(false); });
