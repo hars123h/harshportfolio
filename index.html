@@ -356,8 +356,8 @@ footer.foot b{color:var(--mint);font-weight:500}
   .about{grid-template-columns:1fr}
   .aphoto{max-width:340px}
   .kv{grid-template-columns:1fr}
-  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);z-index:60;gap:10px;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-  .mbar.show{transform:none}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);z-index:60;gap:10px;visibility:hidden;transform:translateY(calc(100% + 40px + env(safe-area-inset-bottom)));transition:transform .35s cubic-bezier(.2,.8,.2,1),visibility 0s linear .35s}
+  .mbar.show{visibility:visible;transform:none;transition-delay:0s}
   .mbar a{flex:1;justify-content:center;min-height:50px;font-size:15.5px}
   footer.foot{padding-bottom:96px}
 }
@@ -458,6 +458,8 @@ html.lenis,html.lenis body{height:auto}
 }
 
 @media (max-width:900px){
+  /* phones: a live blur behind the fixed bar repaints every scroll frame, so use a solid tint */
+  .bar,.top.scrolled .bar{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(9,36,25,.9)}
   .chip span{font-size:11px;padding:6px 9px;gap:6px}
   .chip span::before{width:6px;height:6px}
   .ticket::before{display:none}
@@ -1082,7 +1084,8 @@ $('#keys').innerHTML = Array.from({length:62},(_,i)=> i===56 ? '<i class="sp"></
 
 /* ---------- smooth scroll (Lenis, falls back to native) ---------- */
 let lenis = null;
-if(!RM && window.Lenis){
+/* smooth scroll only for mouse/trackpad; phones keep their own native scroll */
+if(!RM && window.Lenis && matchMedia('(hover:hover) and (pointer:fine)').matches){
   try{
     lenis = new Lenis({lerp:.085, smoothWheel:true});
     const lr = t => { lenis.raf(t); requestAnimationFrame(lr); };
@@ -1133,8 +1136,10 @@ function measure(){
     G.x1 = W/2; G.y1 = top + (H-top-bot)/2;
     G.ry = -10; G.rx0 = 28;
   } else {
-    const top = caseHead.offsetTop + caseHead.offsetHeight + 10;
-    const bot = cnav.offsetHeight + 34;
+    /* measure the real boxes: iPhone safe areas and font sizes move them, so a formula drifts */
+    const sr = stage.getBoundingClientRect();
+    const top = caseHead.getBoundingClientRect().bottom - sr.top + 10;
+    const bot = sr.bottom - cnav.getBoundingClientRect().top + 14;
     G.s1 = Math.max(.2, Math.min((W-20)/960, (H-top-bot)/620));
     G.x1 = W/2; G.y1 = top + (H-top-bot)/2;
     G.ry = -6; G.rx0 = 24;
@@ -1157,13 +1162,14 @@ function kick(){ if(!S.run){ S.run = true; requestAnimationFrame(tick); } }
 function tick(){
   /* Lenis already smooths mouse/trackpad scroll, so don't smooth it a second time (that made the laptop lag) */
   if(lenis) target();
-  const k = RM ? 1 : (lenis && fine ? 1 : (lenis ? .3 : .14));
+  /* touch: follow the finger exactly (no catch-up lag); mouse without Lenis: light smoothing */
+  const k = (RM || lenis || !fine) ? 1 : .14;
   S.pC += (S.pT - S.pC) * k; if(Math.abs(S.pT - S.pC) < .0004) S.pC = S.pT;
   S.mx += (S.mxT - S.mx) * .07; S.my += (S.myT - S.my) * .07;
   S.cx += (S.cxT - S.cx) * .22; S.cy += (S.cyT - S.cy) * .22;
   const y = scrollY, dv = y - S.lastY; S.lastY = y; S.v += (dv - S.v) * .15;
   render(S.pC);
-  if(!RM) skew.style.transform = `skewY(${clamp(S.v*.06,-4,4).toFixed(2)}deg)`;
+  if(!RM && fine) skew.style.transform = `skewY(${clamp(S.v*.06,-4,4).toFixed(2)}deg)`;
   cur.style.translate = `${S.cx.toFixed(1)}px ${S.cy.toFixed(1)}px`;
   const moving = S.pT !== S.pC || Math.abs(S.mxT-S.mx) > .001 || Math.abs(S.myT-S.my) > .001 ||
                  Math.abs(S.v) > .05 || Math.abs(S.cxT-S.cx) > .5 || Math.abs(S.cyT-S.cy) > .5;
@@ -1359,6 +1365,7 @@ measure(); fill(0); target(); S.pC = S.pT; render(S.pC);
 Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r=>setTimeout(r,1500))])
   .then(()=> requestAnimationFrame(()=>{ measure(); target(); render(S.pC); entrance(); }));
 setTimeout(entrance, 3000);
+addEventListener('load', () => { measure(); target(); render(S.pC); });
 
 /* ---------- niches: personalised hero for links like #dentists ---------- */
 const NICHES = {
