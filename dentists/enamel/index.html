@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ivora Dental Studio · Noida</title>
+<meta name="description" content="Ivora Dental Studio in Sector 50, Noida. Check-ups, whitening, implants and clear aligners, planned in 3D and shown to you before treatment begins.">
+<meta name="theme-color" content="#f6f2ea">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5c58'/%3E%3Cpath d='M10 9c-3 0-4 3-3.4 6 .5 2.6 1.4 4.6 2 7.4.4 1.8 2.6 1.8 3-.1l1-4c.3-1.2 2.5-1.2 2.8 0l1 4c.4 1.9 2.6 1.9 3 .1.6-2.8 1.5-4.8 2-7.4C26 12 25 9 22 9c-2 0-3.2 1.2-6 1.2S12 9 10 9Z' fill='%23f6f2ea'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+
+<!-- 3D stage: one fixed canvas behind the hero and the treatment story -->
+<div class="stage" id="stage" aria-hidden="true">
+  <canvas id="gl"></canvas>
+  <img class="stage-fallback" id="fallback" src="img/tooth-still.jpg" alt="">
+  <div class="tags" id="tags">
+    <span class="tag" data-tag="enamel">Enamel 1.8 mm</span>
+    <span class="tag" data-tag="filling">Old filling, sound</span>
+    <span class="tag" data-tag="gum">Gum line healthy</span>
+    <span class="tag" data-tag="crown">Ceramic crown</span>
+    <span class="tag" data-tag="abutment">Abutment</span>
+    <span class="tag" data-tag="post">Titanium post</span>
+    <span class="tag" data-tag="tray">Clear tray, 0.5 mm</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Ivora Dental Studio, back to top">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 7c-3.4 0-4.7 3.4-4 6.8.6 3 1.6 5.2 2.2 8.4.5 2 3 2 3.4-.1l1.1-4.5c.4-1.4 2.8-1.4 3.2 0l1.1 4.5c.4 2.1 2.9 2.1 3.4.1.6-3.2 1.6-5.4 2.2-8.4C27.3 10.4 26 7 22.6 7c-2.3 0-3.6 1.4-6.6 1.4S12.3 7 10 7Z"/></svg>
+    <span>Ivora</span>
+  </a>
+  <nav class="links" aria-label="Main">
+    <a href="#story">How we work</a>
+    <a href="#treatments">Treatments</a>
+    <a href="#studio">Studio</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <a class="btn btn-ink nav-cta" href="#visit">Book a visit</a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a href="#story">How we work</a><a href="#treatments">Treatments</a><a href="#studio">Studio</a><a href="#doctors">Doctors</a><a href="#visit">Book a visit</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span>Ivora Dental Studio · Sector 50, Noida</p>
+      <h1 class="split">Dentistry you can <em>see</em> before it begins.</h1>
+      <p class="lede reveal">We scan your teeth, plan the work in 3D and show you every step on screen. Then we treat you slowly, in quiet rooms, one patient at a time.</p>
+      <div class="hero-acts reveal">
+        <a class="btn btn-teal" href="#visit">Book a visit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#story">See how it works</a>
+      </div>
+      <dl class="trust reveal">
+        <div><dt><span class="count" data-to="4.9" data-dec="1">4.9</span><span class="stars" aria-hidden="true">★★★★★</span></dt><dd>1,200+ Google reviews</dd></div>
+        <div><dt>Since 2011</dt><dd>Two specialists in-house</dd></div>
+        <div><dt>Pain-free</dt><dd>Gentle numbing, sedation on request</dd></div>
+      </dl>
+    </div>
+    <p class="scroll-cue reveal" aria-hidden="true"><span></span>Scroll to turn the tooth</p>
+  </section>
+
+  <!-- 3D STORY: four chapters, pinned while the tooth changes -->
+  <section class="story" id="story" aria-label="How a treatment works at Ivora">
+    <div class="story-pin">
+      <ol class="rail" aria-hidden="true">
+        <li class="on">01 Scan</li><li>02 Whiten</li><li>03 Implant</li><li>04 Align</li>
+      </ol>
+      <div class="chapters">
+        <article class="chapter on" data-ch="0">
+          <p class="kicker">01 · Check-up and 3D scan</p>
+          <h2>A 3D scan, <em>not a guess.</em></h2>
+          <p>Ten minutes in our intraoral scanner and we see every surface, crack and old filling. You see it too, on a screen, before anyone talks about treatment.</p>
+          <p class="meta">30 minutes · ₹500, adjusted against any treatment</p>
+        </article>
+        <article class="chapter" data-ch="1">
+          <p class="kicker">02 · Whitening</p>
+          <h2>Two to four shades <em>brighter, safely.</em></h2>
+          <p>One 60-minute visit lifts tea and coffee stains. We hold a shade guide to your teeth, so you choose how far to go. Try it on the tooth:</p>
+          <div class="shades" role="group" aria-label="Try a shade">
+            <button type="button" data-shade="A3" style="--c:#e6d2a4">A3</button>
+            <button type="button" data-shade="A2" style="--c:#ecdcb6">A2</button>
+            <button type="button" data-shade="A1" style="--c:#f2e8cf">A1</button>
+            <button type="button" data-shade="B1" style="--c:#f8f5ec">B1</button>
+          </div>
+          <p class="meta">60 minutes · from ₹8,000</p>
+        </article>
+        <article class="chapter" data-ch="2">
+          <p class="kicker">03 · Dental implants</p>
+          <h2>A missing tooth, <em>rebuilt in three parts.</em></h2>
+          <p>A titanium post takes the place of the root. A small abutment joins it to a ceramic crown, shaded to match its neighbours. Most people are back at work the next day.</p>
+          <p class="meta">2–3 visits over 3 months · from ₹25,000</p>
+        </article>
+        <article class="chapter" data-ch="3">
+          <p class="kicker">04 · Clear aligners</p>
+          <h2>Straighter teeth, <em>no metal.</em></h2>
+          <p>Clear trays move your teeth a fraction of a millimetre at a time. You change trays every two weeks, take them out to eat, and see us once a month.</p>
+          <p class="meta">6–12 months · from ₹60,000</p>
+        </article>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+  </section>
+
+  <!-- TREATMENTS -->
+  <section class="section treatments" id="treatments">
+    <div class="head">
+      <p class="kicker reveal">Treatments and prices</p>
+      <h2 class="split">Clear prices, <em>written down</em> before we start.</h2>
+      <p class="reveal">These are starting points. After your check-up you get a written estimate for your own mouth, and it doesn't change halfway through.</p>
+    </div>
+    <div class="cards">
+      <a class="card reveal" href="#visit"><span class="no">01</span><h3>Check-up &amp; 3D scan</h3><p>Full exam, scan, X-ray if needed and a plan in plain words.</p><div class="row"><b>₹500</b><span>30 min</span></div></a>
+      <a class="card reveal" href="#visit"><span class="no">02</span><h3>Cleaning &amp; polish</h3><p>Scaling, polish and a check on your gums. Every six months.</p><div class="row"><b>₹1,500</b><span>45 min</span></div></a>
+      <a class="card reveal" href="#visit"><span class="no">03</span><h3>Teeth whitening</h3><p>In-clinic whitening with sensitivity checks at every stage.</p><div class="row"><b>₹8,000</b><span>60 min</span></div></a>
+      <a class="card reveal" href="#visit"><span class="no">04</span><h3>Root canal</h3><p>Single-sitting where possible, under a microscope.</p><div class="row"><b>from ₹4,500</b><span>1–2 visits</span></div></a>
+      <a class="card reveal" href="#visit"><span class="no">05</span><h3>Dental implant</h3><p>Titanium post, abutment and a ceramic crown, all included.</p><div class="row"><b>from ₹25,000</b><span>2–3 visits</span></div></a>
+      <a class="card reveal" href="#visit"><span class="no">06</span><h3>Clear aligners</h3><p>Digital plan first, so you see the result before you commit.</p><div class="row"><b>from ₹60,000</b><span>6–12 months</span></div></a>
+    </div>
+  </section>
+
+  <!-- STUDIO: horizontal gallery -->
+  <section class="studio" id="studio">
+    <div class="studio-pin">
+      <div class="studio-head">
+        <p class="kicker">The studio</p>
+        <h2>One patient <em>at a time.</em></h2>
+        <ul class="facts">
+          <li>Sterile kits opened in front of you</li>
+          <li>Noise-cancelling headphones in every chair</li>
+          <li>Wheelchair access and parking</li>
+        </ul>
+      </div>
+      <div class="track" id="track">
+        <figure class="shot w"><picture><source srcset="img/studio-room.avif" type="image/avif"><img src="img/studio-room.jpg" alt="A bright treatment room with a dental chair" width="1400" height="932" loading="lazy"></picture><figcaption>Room 1 · daylight and quiet</figcaption></figure>
+        <figure class="shot t"><picture><source srcset="img/studio-lounge.avif" type="image/avif"><img src="img/studio-lounge.jpg" alt="A calm waiting lounge with black chairs" width="960" height="1200" loading="lazy"></picture><figcaption>The lounge · no waiting past ten minutes</figcaption></figure>
+        <figure class="shot w"><picture><source srcset="img/studio-consult.avif" type="image/avif"><img src="img/studio-consult.jpg" alt="A dentist talking a patient through her treatment plan" width="1400" height="1050" loading="lazy"></picture><figcaption>Plans explained before anything starts</figcaption></figure>
+        <figure class="shot t"><picture><source srcset="img/studio-mirror.avif" type="image/avif"><img src="img/studio-mirror.jpg" alt="A dental mirror in soft light" width="960" height="1200" loading="lazy"></picture><figcaption>Instruments sterilised per patient</figcaption></figure>
+        <figure class="shot w"><picture><source srcset="img/studio-operatory.avif" type="image/avif"><img src="img/studio-operatory.jpg" alt="A modern operatory with a scanner" width="1400" height="936" loading="lazy"></picture><figcaption>Room 2 · scanner and digital X-ray</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section class="section doctors" id="doctors">
+    <div class="head">
+      <p class="kicker reveal">Your doctors</p>
+      <h2 class="split">Two specialists, <em>no rotating staff.</em></h2>
+    </div>
+    <div class="docs">
+      <article class="doc reveal">
+        <div class="ph"><picture><source srcset="img/doctor-ananya.avif" type="image/avif"><img src="img/doctor-ananya.jpg" alt="Dr. Ananya Rao with a patient" width="900" height="900" loading="lazy"></picture></div>
+        <div class="who"><h3>Dr. Ananya Rao</h3><p>BDS, MDS (Prosthodontics)</p><p class="what">Implants, crowns and smile design · 12 years</p></div>
+      </article>
+      <article class="doc reveal">
+        <div class="ph"><picture><source srcset="img/doctor-kabir.avif" type="image/avif"><img src="img/doctor-kabir.jpg" alt="Dr. Kabir Mehta in the clinic" width="900" height="900" loading="lazy"></picture></div>
+        <div class="who"><h3>Dr. Kabir Mehta</h3><p>BDS, MDS (Orthodontics)</p><p class="what">Braces and clear aligners · 9 years</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews">
+    <div class="score reveal">
+      <b><span class="count" data-to="4.9" data-dec="1">4.9</span></b>
+      <div><span class="stars" aria-hidden="true">★★★★★</span><p>1,200+ reviews on Google</p></div>
+    </div>
+    <div class="quotes">
+      <figure class="q reveal"><blockquote>“They showed me the scan before saying a word. For the first time I understood what was wrong with my tooth.”</blockquote><figcaption>Meera S. · Root canal</figcaption></figure>
+      <figure class="q reveal"><blockquote>“My implant took three visits and I never felt rushed. It looks exactly like the teeth around it.”</blockquote><figcaption>Rajiv K. · Implant</figcaption></figure>
+      <figure class="q reveal"><blockquote>“Aligners for eight months, monthly check-ins, zero surprises on the bill.”</blockquote><figcaption>Aisha N. · Clear aligners</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- VISIT + BOOKING -->
+  <section class="section visit" id="visit">
+    <div class="visit-copy">
+      <p class="kicker reveal">Visit</p>
+      <h2 class="split">Book a visit <em>in a minute.</em></h2>
+      <dl class="info reveal">
+        <div><dt>Address</dt><dd>2nd floor, Galaxy Plaza, Sector 50, Noida 201301</dd></div>
+        <div><dt>Hours</dt><dd>Mon–Sat 10:00–20:00 · Sun 10:00–14:00</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+910000000000">+91 00000 00000</a></dd></div>
+      </dl>
+      <a class="maplink reveal" href="https://maps.google.com/?q=Sector+50+Noida" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+    </div>
+    <form class="book reveal" id="book">
+      <label>Your name<input name="name" required autocomplete="name" placeholder="Full name"></label>
+      <label>Phone<input name="phone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile"></label>
+      <label>Treatment
+        <select name="treatment"><option>Check-up &amp; 3D scan</option><option>Cleaning &amp; polish</option><option>Teeth whitening</option><option>Root canal</option><option>Dental implant</option><option>Clear aligners</option><option>Not sure yet</option></select>
+      </label>
+      <label>Preferred day
+        <select name="day"><option>Any day</option><option>Weekday morning</option><option>Weekday evening</option><option>Saturday</option><option>Sunday</option></select>
+      </label>
+      <button class="btn btn-teal" type="submit">Request appointment <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="fine">We confirm on WhatsApp within the hour, during clinic hours.</p>
+    </form>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <h2 class="split">Before you <em>come in.</em></h2>
+    <div class="qa">
+      <details class="reveal"><summary>Will it hurt?</summary><p>Most treatments are done under local anaesthetic, given slowly with a numbing gel first. Sedation is available for anxious patients.</p></details>
+      <details class="reveal"><summary>Do you accept insurance?</summary><p>We give you an itemised bill for reimbursement and work with most corporate dental plans. Ask us about yours.</p></details>
+      <details class="reveal"><summary>How long is an implant visit?</summary><p>Placing the post takes about an hour. The crown goes on after the bone has healed, usually 8 to 12 weeks later.</p></details>
+      <details class="reveal"><summary>Can I pay in instalments?</summary><p>Yes. Implants and aligners can be paid in no-cost monthly instalments through our partner.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-row">
+    <span>Ivora Dental Studio · Sector 50, Noida</span>
+    <span>Mon–Sat 10–8 · Sun 10–2</span>
+    <a href="#visit">Book a visit →</a>
+  </div>
+  <div class="word" aria-hidden="true">Ivora</div>
+</footer>
+
+<!-- demo badge: only on the template, removed for a real clinic -->
+<a class="demo" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20Ivora%20dental%20template.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">
+  <span>Demo template</span> <i>Want this for your clinic?</i> <b>Harsh Tripathi →</b>
+</a>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="page.js"></script>
+<script type="module">
+/* Ivora template · the 3D tooth.
+   The molar is not a downloaded model: it is a signed-distance shape (crown, four cusps, fissures, three roots)
+   turned into a mesh with marching cubes, lit by a soft studio environment.
+   Scroll drives four chapters: scan → whiten → implant (exploded) → clear aligner. */
+import * as THREE from 'three';
+import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const root = document.documentElement;
+const canvas = document.getElementById('gl');
+const stage = document.getElementById('stage');
+const story = document.getElementById('story');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IV = (window.IVORA = window.IVORA || { shade: null });
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+} catch (e) { renderer = null; }
+
+/* ---------- signed distance helpers (plain numbers, fast enough to sample ~700k points once) ---------- */
+const len3 = (x, y, z) => Math.sqrt(x * x + y * y + z * z);
+function sdEllipsoid(x, y, z, rx, ry, rz) {
+  const k0 = len3(x / rx, y / ry, z / rz), k1 = len3(x / (rx * rx), y / (ry * ry), z / (rz * rz));
+  return k1 === 0 ? -Math.min(rx, ry, rz) : k0 * (k0 - 1) / k1;
+}
+function sdCapsule(px, py, pz, ax, ay, az, bx, by, bz, r) {
+  const pax = px - ax, pay = py - ay, paz = pz - az, bax = bx - ax, bay = by - ay, baz = bz - az;
+  const h = Math.min(1, Math.max(0, (pax * bax + pay * bay + paz * baz) / (bax * bax + bay * bay + baz * baz)));
+  return len3(pax - bax * h, pay - bay * h, paz - baz * h) - r;
+}
+// tapered capsule (root): radius goes from r1 at a to r2 at b
+function sdTaper(px, py, pz, ax, ay, az, bx, by, bz, r1, r2) {
+  const bax = bx - ax, bay = by - ay, baz = bz - az, L2 = bax * bax + bay * bay + baz * baz;
+  const h = Math.min(1, Math.max(0, ((px - ax) * bax + (py - ay) * bay + (pz - az) * baz) / L2));
+  return len3(px - ax - bax * h, py - ay - bay * h, pz - az - baz * h) - (r1 + (r2 - r1) * h * h);
+}
+const smin = (a, b, k) => { const h = Math.max(k - Math.abs(a - b), 0) / k; return Math.min(a, b) - h * h * k * 0.25; };
+const smax = (a, b, k) => -smin(-a, -b, k);
+
+function crownSDF(x, y, z) {
+  let d = sdEllipsoid(x, y - 0.3, z, 0.66, 0.42, 0.58);
+  // four cusps
+  d = smin(d, len3(x - 0.29, y - 0.6, z - 0.24) - 0.27, 0.22);
+  d = smin(d, len3(x + 0.29, y - 0.6, z - 0.24) - 0.27, 0.22);
+  d = smin(d, len3(x - 0.29, y - 0.6, z + 0.24) - 0.27, 0.22);
+  d = smin(d, len3(x + 0.29, y - 0.6, z + 0.24) - 0.27, 0.22);
+  // neck that narrows into the roots
+  d = smin(d, sdEllipsoid(x, y + 0.1, z, 0.5, 0.3, 0.44), 0.24);
+  // fissures between the cusps
+  d = smax(d, -sdCapsule(x, y, z, -0.36, 0.86, 0, 0.36, 0.86, 0, 0.075), 0.09);
+  d = smax(d, -sdCapsule(x, y, z, 0, 0.86, -0.3, 0, 0.86, 0.3, 0.06), 0.08);
+  return d;
+}
+function toothSDF(x, y, z) {
+  let d = crownSDF(x, y, z);
+  const r = Math.min(
+    sdTaper(x, y, z, -0.24, -0.1, 0.08, -0.36, -1.28, 0.14, 0.22, 0.06),
+    sdTaper(x, y, z, 0.24, -0.1, 0.08, 0.33, -1.22, 0.1, 0.22, 0.06),
+    sdTaper(x, y, z, 0.0, -0.1, -0.2, 0.03, -1.1, -0.4, 0.2, 0.06)
+  );
+  return smin(d, r, 0.2);
+}
+// crown only, cut flat just under the neck (used for the implant crown and the aligner shell)
+const crownOnlySDF = (x, y, z) => smax(crownSDF(x, y, z), -(y + 0.16), 0.08);
+
+/* polygonise an SDF inside a cube centred at c with half-size H; returns a static BufferGeometry in world units */
+function meshFromSDF(sdf, res, c, H) {
+  const mc = new MarchingCubes(res, new THREE.MeshBasicMaterial(), false, false, 120000);
+  mc.isolation = 0;
+  const f = mc.field, n = mc.size, half = mc.halfsize;
+  for (let k = 0; k < n; k++) {
+    const z = c[2] + ((k - half) / half) * H;
+    for (let j = 0; j < n; j++) {
+      const y = c[1] + ((j - half) / half) * H;
+      const row = k * mc.size2 + j * n;
+      for (let i = 0; i < n; i++) {
+        const x = c[0] + ((i - half) / half) * H;
+        f[row + i] = -sdf(x, y, z);
+      }
+    }
+  }
+  mc.update();
+  const count = mc.count, pos = new Float32Array(count * 3), nor = new Float32Array(count * 3);
+  for (let i = 0; i < count * 3; i += 3) {
+    pos[i] = c[0] + mc.positionArray[i] * H;
+    pos[i + 1] = c[1] + mc.positionArray[i + 1] * H;
+    pos[i + 2] = c[2] + mc.positionArray[i + 2] * H;
+    const nx = mc.normalArray[i], ny = mc.normalArray[i + 1], nz = mc.normalArray[i + 2], l = Math.hypot(nx, ny, nz) || 1;
+    nor[i] = nx / l; nor[i + 1] = ny / l; nor[i + 2] = nz / l;
+  }
+  mc.geometry.dispose();
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+  g.computeBoundingSphere();
+  return g;
+}
+
+/* ---------- implant parts: titanium post with a real thread, and an abutment ---------- */
+function makeImplant(metal) {
+  const g = new THREE.Group();
+  const post = new THREE.Group();
+  post.add(new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.1, 1.0, 48), metal));
+  class Helix extends THREE.Curve {
+    getPoint(t, out = new THREE.Vector3()) {
+      const turns = 7, a = t * Math.PI * 2 * turns, y = 0.44 - t * 0.9, r = 0.152 - t * 0.045;
+      return out.set(Math.cos(a) * r, y, Math.sin(a) * r);
+    }
+  }
+  post.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 420, 0.032, 10, false), metal));
+  const tip = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.12, 40), metal); tip.position.y = -0.56; tip.rotation.x = Math.PI; post.add(tip);
+  const abut = new THREE.Group();
+  abut.add(new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.19, 0.34, 48), metal));
+  const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.17, 0.08, 48), metal); collar.position.y = -0.2; abut.add(collar);
+  g.add(post, abut);
+  return { group: g, post, abut };
+}
+
+function start() {
+  const mobile = () => innerWidth < 761;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 1.8));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = 0.85;
+  const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(3, 4, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xbfe3da, 1.4); rim.position.set(-4, 2, -3); scene.add(rim);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xe9dfcc, 0.35));
+
+  const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 50);
+  camera.position.set(0, 0.35, 7.2);
+  camera.lookAt(0, -0.1, 0);
+
+  // materials
+  const B1 = new THREE.Color('#f5f1e6'), A3 = new THREE.Color('#d2ad6e');
+  const enamel = new THREE.MeshPhysicalMaterial({ color: B1.clone(), roughness: 0.3, clearcoat: 0.9, clearcoatRoughness: 0.2, sheen: 0.6, sheenRoughness: 0.45, sheenColor: new THREE.Color('#ffffff'), specularIntensity: 0.7, transparent: true });
+  const ceramic = enamel.clone(); ceramic.roughness = 0.2;
+  const metal = new THREE.MeshStandardMaterial({ color: '#c8ccd2', metalness: 1, roughness: 0.28, transparent: true });
+  const glass = new THREE.MeshPhysicalMaterial({ color: '#eaf6f3', roughness: 0.08, transmission: mobile() ? 0 : 1, thickness: 0.12, ior: 1.45, transparent: true, opacity: mobile() ? 0.32 : 1, clearcoat: 1, clearcoatRoughness: 0.05 });
+
+  // geometry (built once; lower resolution on phones)
+  const res = mobile() ? 64 : 84;
+  const toothGeo = meshFromSDF(toothSDF, res, [0, -0.2, 0], 1.18);
+  const crownGeo = meshFromSDF(crownOnlySDF, Math.round(res * 0.85), [0, 0.38, 0], 0.72);
+
+  const world = new THREE.Group(); scene.add(world);           // placement on screen
+  const spin = new THREE.Group(); world.add(spin);              // rotation
+  const tooth = new THREE.Mesh(toothGeo, enamel); spin.add(tooth);
+  const crown = new THREE.Mesh(crownGeo, ceramic); crown.visible = false; spin.add(crown);
+  const imp = makeImplant(metal); imp.group.visible = false; spin.add(imp.group);
+  const tray = new THREE.Mesh(crownGeo, glass); tray.scale.setScalar(1.08); tray.visible = false; spin.add(tray);
+
+  // scanner ring
+  const scan = new THREE.Group();
+  const ringMat = new THREE.MeshBasicMaterial({ color: '#2d7a74', transparent: true, opacity: 0 });
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.92, 0.008, 8, 160), ringMat); ring.rotation.x = Math.PI / 2;
+  const discMat = new THREE.MeshBasicMaterial({ color: '#2d7a74', transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false });
+  const disc = new THREE.Mesh(new THREE.CircleGeometry(0.92, 96), discMat); disc.rotation.x = -Math.PI / 2;
+  scan.add(ring, disc); world.add(scan);
+
+  // soft contact shadow
+  const sc = document.createElement('canvas'); sc.width = sc.height = 128;
+  const cx = sc.getContext('2d'), gr = cx.createRadialGradient(64, 64, 4, 64, 64, 64);
+  gr.addColorStop(0, 'rgba(40,52,48,.42)'); gr.addColorStop(1, 'rgba(40,52,48,0)');
+  cx.fillStyle = gr; cx.fillRect(0, 0, 128, 128);
+  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, depthWrite: false }));
+  shadow.rotation.x = -Math.PI / 2; shadow.position.y = -1.55; world.add(shadow);
+
+  // HTML tags that follow points on the model
+  const tagEl = {}; document.querySelectorAll('.tag').forEach(t => (tagEl[t.dataset.tag] = t));
+  const anchors = {
+    enamel: [tooth, new THREE.Vector3(0.62, 0.42, 0.25)],
+    filling: [tooth, new THREE.Vector3(0.2, 0.86, 0.05)],
+    gum: [tooth, new THREE.Vector3(-0.5, -0.12, 0.3)],
+    crown: [crown, new THREE.Vector3(0.66, 0.35, 0.1)],
+    abutment: [imp.abut, new THREE.Vector3(0.2, 0, 0.05)],
+    post: [imp.post, new THREE.Vector3(0.17, -0.1, 0.05)],
+    tray: [tray, new THREE.Vector3(0.62, 0.55, 0.2)]
+  };
+
+  // sizing
+  let W = 1, H = 1;
+  function resize() {
+    W = innerWidth; H = innerHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+  }
+  resize(); addEventListener('resize', resize);
+
+  // pointer tilt
+  const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+  addEventListener('pointermove', e => { tilt.tx = (e.clientY / H - 0.5) * 0.25; tilt.ty = (e.clientX / W - 0.5) * 0.35; }, { passive: true });
+
+  // smoothed state
+  const S = { x: 0, y: 0, s: 0.9, rx: 0.12, rz: -0.08, spin: 0, explode: 0, crownMix: 0, trayY: 1.6, trayO: 0, scanO: 0, shade: 1 };
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const sstep = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const damp = (cur, tgt, k, dt) => cur + (tgt - cur) * (1 - Math.exp(-k * dt));
+  const viewW = () => 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z * camera.aspect;
+  const viewH = () => 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z;
+
+  stage.classList.add('ready');
+  let last = performance.now(), t = 0, visible = true;
+  const v3 = new THREE.Vector3();
+
+  function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
+
+    // where are we on the page?
+    const r = story.getBoundingClientRect();
+    const intro = clamp(1 - r.top / H);                         // 0 at the hero, 1 when the story pins
+    const p = clamp(-r.top / Math.max(1, r.height - H));        // 0..1 through the story
+    const past = r.bottom < H * 0.35;                            // story finished: hide and stop drawing
+    if (past !== !visible) { visible = !past; stage.classList.toggle('off', past); }
+    if (!visible) return;
+
+    const ch = intro < 1 ? -1 : Math.min(3, Math.floor(p * 4));
+    const lp = intro < 1 ? 0 : p * 4 - Math.max(0, ch);          // progress inside the chapter
+    IV.chapter = ch;
+
+    // target pose
+    const m = mobile(), vw = viewW(), vh = viewH();
+    let tx = m ? 0 : vw * 0.2, ty = m ? vh * 0.19 : -0.12, ts = m ? 0.56 : 0.88, trx = 0.14, trz = -0.08;
+    if (intro < 1) { tx = m ? 0 : vw * (0.24 - 0.04 * intro); ty = m ? vh * (0.26 - 0.07 * intro) : -0.08 - 0.04 * intro; ts = m ? 0.5 + 0.06 * intro : 1.0 - 0.12 * intro; }
+    if (ch === 1) { trx = 0.62; trz = -0.04; }
+    if (ch === 2) { ts *= 0.86; ty += m ? 0 : 0.05; }
+    if (ch === 3) { trx = 0.38; }
+
+    const k = RM ? 60 : 4.2;
+    S.x = damp(S.x, tx, k, dt); S.y = damp(S.y, ty, k, dt); S.s = damp(S.s, ts, k, dt);
+    S.rx = damp(S.rx, trx + tilt.y * 0 + tilt.x, k, dt); S.rz = damp(S.rz, trz, k, dt);
+    tilt.x = damp(tilt.x, tilt.tx, 3, dt); tilt.y = damp(tilt.y, tilt.ty, 3, dt);
+    S.spin += dt * (RM ? 0 : ch === 2 ? 0.18 : 0.32);
+
+    world.position.set(S.x, S.y + (RM ? 0 : Math.sin(t * 1.1) * 0.03), 0);
+    world.scale.setScalar(S.s);
+    spin.rotation.set(S.rx, S.spin + tilt.y, S.rz);
+
+    // chapter 0: scanner sweeps top to bottom
+    const scanOn = ch === 0 ? 1 : 0;
+    S.scanO = damp(S.scanO, scanOn, 5, dt);
+    const sweep = (t * 0.45) % 1;
+    scan.position.y = 1.0 - sweep * 2.35;
+    ringMat.opacity = S.scanO * 0.9 * Math.sin(sweep * Math.PI);
+    discMat.opacity = S.scanO * 0.1 * Math.sin(sweep * Math.PI);
+    scan.visible = S.scanO > 0.01;
+
+    // chapter 1: shade lifts from A3 to B1, unless the visitor picked a shade
+    let shadeT = 1;
+    if (ch === 1) shadeT = IV.shade ? null : sstep(0.1, 0.75, lp);
+    if (shadeT === null) enamel.color.lerp(new THREE.Color(IV.shade), 1 - Math.exp(-6 * dt));
+    else { S.shade = damp(S.shade, ch === 1 ? shadeT : 1, 6, dt); enamel.color.copy(A3).lerp(B1, S.shade); }
+    if (ch !== 1) IV.shade = null;
+
+    // chapter 2: tooth gives way to crown + abutment + post, which then separate
+    S.crownMix = damp(S.crownMix, ch === 2 ? 1 : 0, 7, dt);
+    S.explode = damp(S.explode, ch === 2 ? sstep(0.12, 0.7, lp) : 0, 6, dt);
+    enamel.opacity = 1 - S.crownMix;
+    tooth.visible = enamel.opacity > 0.01;
+    ceramic.opacity = S.crownMix; metal.opacity = S.crownMix;
+    crown.visible = imp.group.visible = S.crownMix > 0.01;
+    crown.position.y = 0.05 + S.explode * 0.62;
+    imp.abut.position.y = -0.2 - S.explode * 0.12;
+    imp.post.position.y = -0.82 - S.explode * 0.42;
+
+    // chapter 3: clear tray comes down over the crown
+    const trayOn = ch === 3 ? sstep(0.05, 0.55, lp) : 0;
+    S.trayY = damp(S.trayY, 1.5 * (1 - trayOn), 6, dt);
+    S.trayO = damp(S.trayO, ch === 3 ? 1 : 0, 6, dt);
+    tray.position.y = S.trayY - 0.03;
+    glass.opacity = (m ? 0.32 : 1) * S.trayO;
+    tray.visible = S.trayO > 0.01;
+    shadow.material.opacity = 0.9;
+
+    // tags
+    const show = {
+      enamel: ch === 0 && lp > 0.15, filling: ch === 0 && lp > 0.3, gum: ch === 0 && lp > 0.45,
+      crown: ch === 2 && S.explode > 0.6, abutment: ch === 2 && S.explode > 0.7, post: ch === 2 && S.explode > 0.8,
+      tray: ch === 3 && trayOn > 0.95
+    };
+    world.updateMatrixWorld();
+    for (const name in anchors) {
+      const el = tagEl[name]; if (!el) continue;
+      const on = !!show[name];
+      el.classList.toggle('show', on);
+      if (!on) continue;
+      const [obj, pt] = anchors[name];
+      v3.copy(pt).applyMatrix4(obj.matrixWorld).project(camera);
+      const px = (v3.x * 0.5 + 0.5) * W, py = (-v3.y * 0.5 + 0.5) * H;
+      const ew = el.offsetWidth || 120;
+      const lx = px + 14 + ew > W - 8 ? px - 14 - ew : px + 14;   // flip to the left near the right edge
+      el.style.transform = `translate(${Math.max(8, lx).toFixed(1)}px,${(py - 14).toFixed(1)}px)`;
+    }
+
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
+}
+
+if (!renderer || !renderer.getContext()) root.classList.add('no-gl');
+else start();
+</script>
+</body>
+</html>

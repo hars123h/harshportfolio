@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AXIS Implant Centre · Dental implants in Bandra, Mumbai</title>
+<meta name="description" content="Dental implants planned on a 3D scan and placed with a surgical guide. Single implants, bridges and All-on-4 fixed teeth in 72 hours. Free consultation and CBCT scan.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0b0c'/%3E%3Cpath d='M9 5h14a3 3 0 0 1 3 3c0 3.6-1.8 5.4-3.6 6.3H9.6C7.8 13.4 6 11.6 6 8a3 3 0 0 1 3-3Z' fill='%23ff5b1f'/%3E%3Crect x='12' y='15.5' width='8' height='2.6' rx='1' fill='%23f2efe9'/%3E%3Cpath d='M12.6 19h6.8l-.6 8.4a1.8 1.8 0 0 1-1.8 1.6h-2a1.8 1.8 0 0 1-1.8-1.6Z' fill='%23c9ced6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script>(function(d){if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');setTimeout(function(){if(!window.__ready)d.classList.remove('anim')},4000)}})(document.documentElement)</script>
+</head>
+<body>
+
+<!-- 3D stage: one fixed canvas shared by the hero and the assembly story -->
+<div class="stage" id="stage" aria-hidden="true">
+  <canvas id="gl"></canvas>
+  <img class="stage-fallback" src="img/render-jaw.jpg" alt="">
+  <div class="tags">
+    <span class="tag" data-tag="crown"><b>Zirconia crown</b></span>
+    <span class="tag" data-tag="abutment"><b>Titanium abutment</b></span>
+    <span class="tag" data-tag="post"><b>Grade-5 titanium post</b></span>
+    <span class="tag" data-tag="bone"><b>Your jawbone</b></span>
+    <span class="tag" data-tag="heal"><b>New bone, week by week</b></span>
+  </div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span><i></i></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="AXIS Implant Centre, back to top">
+    <svg viewBox="0 0 24 30" aria-hidden="true"><path d="M5 2h14a3 3 0 0 1 3 3c0 4-2 6-4 7H6C4 11 2 9 2 5a3 3 0 0 1 3-3Z" fill="#ff5b1f"/><rect x="8" y="13" width="8" height="3" rx="1" fill="#f2efe9"/><path d="M8.6 17.5h6.8l-.6 9.6a2 2 0 0 1-2 1.9h-1.6a2 2 0 0 1-2-1.9Z" fill="#c9ced6"/><path d="M8.7 20.5h6.6M8.9 23.3h6.2M9.1 26h5.8" stroke="#0b0b0c" stroke-width="1"/></svg>
+    <span><b>AXIS</b><small>Implant Centre</small></span>
+  </a>
+  <nav class="links" aria-label="Main"><a href="#implant">The implant</a><a href="#options">Options</a><a href="#process">Process</a><a href="#surgeon">Surgeon</a><a href="#reviews">Reviews</a></nav>
+  <a class="btn btn-or" href="#book">Free consultation</a>
+  <button class="burger" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+<nav class="sheet" id="sheet" aria-label="Mobile" aria-hidden="true">
+  <a href="#implant">The implant</a><a href="#options">Options</a><a href="#process">Process</a><a href="#surgeon">Surgeon</a><a href="#book">Free consultation</a>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <h1 class="row r1"><span data-chars>New teeth,</span><span class="sr"> built to last.</span></h1>
+    <div class="mid">
+      <div class="hero-copy" data-up>
+        <p class="hero-sub">Dental implants planned on a 3D scan and placed with a surgical guide. One surgeon, more than 4,200 implants, and a written plan before anything starts.</p>
+        <div class="hero-acts"><a class="btn btn-or" href="#book">Book a free consultation <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="#implant">See how it works</a></div>
+      </div>
+      <div class="slot" id="slotHero" aria-hidden="true"></div>
+      <dl class="hero-meta" data-up>
+        <div><dt><b>4.9 ★</b></dt><dd>1,100+ Google reviews</dd></div>
+        <div><dt><b>4,200+</b></dt><dd>implants placed</dd></div>
+        <div><dt><b>25 yrs</b></dt><dd>implant warranty</dd></div>
+      </dl>
+    </div>
+    <p class="row r2" aria-hidden="true"><span data-chars>Built to last</span><em>.</em></p>
+  </section>
+
+  <!-- ASSEMBLY STORY (pinned) -->
+  <section class="assemble" id="implant" aria-label="How a dental implant works">
+    <div class="as-pin">
+      <div class="as-slot" id="slotAs" aria-hidden="true"></div>
+      <div class="phases">
+        <article class="phase on"><span class="big">01</span><h2>Three parts. <span class="or">One tooth.</span></h2><p>A titanium post replaces the root, a small abutment connects it, and a zirconia crown is the part people see. Each one is made for your mouth from a 3D scan.</p></article>
+        <article class="phase"><span class="big">02</span><h2>Placed in <span class="or">the bone.</span></h2><p>A 3D-printed guide sets the post at the exact depth and angle we planned. It takes about an hour under local anaesthetic, and most people are back at work the next day.</p></article>
+        <article class="phase"><span class="big">03</span><h2>The bone grows <span class="or">onto it.</span></h2><p>Over 8 to 12 weeks your jawbone bonds to the titanium. That bond is why implants last for decades. You wear a temporary tooth meanwhile, so nobody sees a gap.</p></article>
+        <article class="phase"><span class="big">04</span><h2>A tooth you <span class="or">forget about.</span></h2><p>The abutment and crown go on in one short visit. It looks like your own tooth, and you can bite into an apple again.</p></article>
+      </div>
+      <div class="hud" aria-hidden="true">
+        <div data-k="depth"><small>Depth</small><b id="hDepth">0.0<span>mm</span></b></div>
+        <div data-k="torque"><small>Torque</small><b id="hTorque">0<span>Ncm</span></b></div>
+        <div data-k="heal"><small>Healing</small><b id="hHeal">0<span>weeks</span></b></div>
+      </div>
+      <div class="as-bar" aria-hidden="true"><span id="asLabel">01 / 04 · Anatomy</span><div class="track"><i id="asBar"></i></div><span>Keep scrolling</span></div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="sec numbers" aria-label="AXIS in numbers">
+    <div data-up><b><span data-count="4200">4,200</span><em>+</em></b><span>implants placed since 2012</span></div>
+    <div data-up><b><span data-count="98.6" data-dec="1">98.6</span><em>%</em></b><span>still in place after ten years</span></div>
+    <div data-up><b><span data-count="1">1</span><em> hr</em></b><span>per implant, back at work the next day</span></div>
+    <div data-up><b><span data-count="25">25</span><em> yr</em></b><span>warranty on every implant we place</span></div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section class="sec" id="options">
+    <div class="head">
+      <div><p class="kicker" data-up>Treatment options</p><h2 data-split>One tooth or <span class="or">a full smile.</span></h2></div>
+      <p data-up>Every price includes the 3D scan, the implant, the abutment and the crown. You get it in writing on your first visit, and it doesn’t change halfway.</p>
+    </div>
+    <div class="opts">
+      <article class="opt" data-up>
+        <figure><picture><source srcset="img/render-jaw.avif" type="image/avif"><img src="img/render-jaw.jpg" alt="A single implant with a crown, shown in the jaw" width="1200" height="800" loading="lazy"></picture></figure>
+        <h3>Single implant</h3><p>One missing tooth replaced, without touching the teeth next to it.</p>
+        <div class="price"><small>From</small><b>₹32,000</b></div>
+        <ul><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>3D CBCT scan and surgical guide</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Implant, abutment and zirconia crown</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Check-ups for the first year</li></ul>
+        <a class="btn btn-line" href="#book">Book a consultation</a>
+      </article>
+      <article class="opt feat" data-up>
+        <span class="flag">Most life-changing</span>
+        <figure><picture><source srcset="img/model-dark.avif" type="image/avif"><img src="img/model-dark.jpg" alt="Model of an implant between natural teeth" width="1200" height="800" loading="lazy"></picture></figure>
+        <h3>All-on-4</h3><p>A full set of fixed teeth on four implants. Walk in with dentures, walk out with fixed teeth in 72 hours.</p>
+        <div class="price"><small>From</small><b>₹2,40,000</b><small>per arch</small></div>
+        <ul><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Fixed teeth within 72 hours</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Final teeth after 4 months</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Sedation if you prefer</li></ul>
+        <a class="btn btn-or" href="#book">Book a consultation</a>
+      </article>
+      <article class="opt" data-up>
+        <figure><picture><source srcset="img/hand-implant.avif" type="image/avif"><img src="img/hand-implant.jpg" alt="A gloved hand holding an implant with its crown" width="960" height="1200" loading="lazy"></picture></figure>
+        <h3>Implant bridge</h3><p>Three or four missing teeth in a row, replaced with a bridge on two implants.</p>
+        <div class="price"><small>From</small><b>₹85,000</b></div>
+        <ul><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Two implants, one fixed bridge</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>3D scan and surgical guide</li><li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Check-ups for the first year</li></ul>
+        <a class="btn btn-line" href="#book">Book a consultation</a>
+      </article>
+    </div>
+    <p class="emi" data-up>No-cost EMI for up to 12 months · Cashless with major insurers</p>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="sec" style="padding-top:0">
+    <div class="head">
+      <div><p class="kicker" data-up>Why it lasts</p><h2 data-split>Planned in 3D. <span class="or">Placed by guide.</span></h2></div>
+      <p data-up>Most implant problems start with guesswork. We remove it at every step, from the first scan to the final crown.</p>
+    </div>
+    <div class="bento">
+      <article class="tile img t1" data-up><picture><source srcset="img/scan.avif" type="image/avif"><img src="img/scan.jpg" alt="A 3D dental scan on a tablet" width="1200" height="800" loading="lazy"></picture><h3>3D CBCT scan, in-house</h3><p>We see your bone in three dimensions, not on a flat X-ray, and plan every implant on it before the day.</p></article>
+      <article class="tile img t2" data-up><picture><source srcset="img/surgery.avif" type="image/avif"><img src="img/surgery.jpg" alt="Surgeons placing an implant" width="1200" height="800" loading="lazy"></picture><h3>Guided surgery</h3><p>A 3D-printed guide sets each implant at the planned angle and depth. Smaller cuts, faster healing.</p></article>
+      <article class="tile t3" data-up><span class="big">60 min</span><p>per implant, under local anaesthetic. Sedation if you would rather sleep through it.</p></article>
+      <article class="tile t4" data-up><span class="big">25 yr</span><p>warranty on every implant we place, backed by the manufacturer.</p></article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec" id="process" style="padding-top:0">
+    <div class="process-in">
+      <div class="when">
+        <p class="lab">Your timeline</p>
+        <div class="val" id="whenVal"><span>Day <em>1</em></span></div>
+        <p>Four visits from your first scan to a tooth you can chew with.</p>
+      </div>
+      <ol class="steps">
+        <li data-when="Day <em>1</em>"><div><h3>Consultation and 3D scan</h3><p>We scan your jaw, show you the plan on screen and give you a written price. If you need a bone graft first, you hear it today.</p><span class="tagline">45 minutes · free</span></div></li>
+        <li data-when="Day <em>7</em>"><div><h3>Implant placement</h3><p>The post goes in using your surgical guide, under local anaesthetic. You go home the same day with a temporary tooth.</p><span class="tagline">About 1 hour per implant</span></div></li>
+        <li data-when="Wk <em>12</em>"><div><h3>Healing check</h3><p>Two short check-ins while the bone bonds to the implant. Eat soft food for the first week, then carry on as normal.</p><span class="tagline">2 check-ins · 15 minutes each</span></div></li>
+        <li data-when="Wk <em>14</em>"><div><h3>Your final crown</h3><p>We fit the abutment and a zirconia crown matched to your other teeth. Then it’s a check-up once a year.</p><span class="tagline">1 visit · 40 minutes</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SURGEON -->
+  <section class="sec surgeon" id="surgeon">
+    <div class="sg-img" data-up><picture><source srcset="img/surgeon.avif" type="image/avif"><img src="img/surgeon.png" alt="Dr. Samuel Adeyemi, implant surgeon" width="706" height="1300" loading="lazy"></picture></div>
+    <div>
+      <p class="kicker" data-up>Your surgeon</p>
+      <h2 data-split>Dr. Samuel <span class="or">Adeyemi</span></h2>
+      <div class="creds">
+        <div data-up><small>Qualification</small><b>BDS, MDS (Oral &amp; Maxillofacial Surgery)</b></div>
+        <div data-up><small>Implants placed</small><b>4,200+ since 2012</b></div>
+        <div data-up><small>Fellowship</small><b>Fellow in Oral Implantology</b></div>
+        <div data-up><small>Also</small><b>Teaches implant courses for dentists</b></div>
+      </div>
+      <blockquote class="sg-quote" data-up>“I plan every implant as if it’s going into my own mouth. If the scan says you need a bone graft first, I tell you before we start, not halfway through.”</blockquote>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec reviews" id="reviews">
+    <div class="head">
+      <div><p class="kicker" data-up>Patients</p><h2 data-split>They bite into <span class="or">apples again.</span></h2></div>
+      <p data-up>4.9 out of 5 from more than 1,100 Google reviews. A few of them, in their own words.</p>
+    </div>
+    <div class="rtrack" id="rtrack">
+      <figure class="rcard"><span class="stars">★★★★★</span><blockquote>“I had been hiding my smile for six years. One implant later, I forget which tooth it is.”</blockquote><footer><span class="ini">NS</span><span>Nikhil S.<small>Single implant</small></span></footer></figure>
+      <figure class="rcard"><span class="stars">★★★★★</span><blockquote>“All-on-4 changed my father’s life. He walked in with loose dentures and walked out three days later with fixed teeth.”</blockquote><footer><span class="ini">PR</span><span>Priya R.<small>All-on-4, for her father</small></span></footer></figure>
+      <figure class="rcard"><span class="stars">★★★★★</span><blockquote>“They showed me the scan, the plan and the price on the first day. Nothing changed after that.”</blockquote><footer><span class="ini">FQ</span><span>Farhan Q.<small>Implant bridge</small></span></footer></figure>
+      <figure class="rcard"><span class="stars">★★★★★</span><blockquote>“I was scared of surgery. It took under an hour and I went back to work the next morning.”</blockquote><footer><span class="ini">MD</span><span>Meenal D.<small>Single implant</small></span></footer></figure>
+      <figure class="rcard"><span class="stars">★★★★★</span><blockquote>“Dr. Samuel explained why I needed a bone graft first. Honest and patient, and the result is perfect.”</blockquote><footer><span class="ini">AK</span><span>Arvind K.<small>Bone graft and implant</small></span></footer></figure>
+    </div>
+    <div class="rnav"><button type="button" id="rPrev" aria-label="Previous reviews"><svg class="ic" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="rNext" aria-label="Next reviews"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span>Drag or swipe for more</span></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" style="padding-top:0">
+    <div class="faq-in">
+      <div class="lead"><p class="kicker" data-up>Questions</p><h2 data-split>Asked on <span class="or">every first visit.</span></h2><p data-up>Still unsure? Bring your questions to the free consultation. We’ll go through all of them.</p></div>
+      <div class="qa">
+        <details data-up><summary>Is getting an implant painful?<i></i></summary><div class="qa-b"><p>It’s done under local anaesthetic, and most patients say it was easier than having a tooth pulled. Expect mild soreness for two or three days.</p></div></details>
+        <details data-up><summary>How long does an implant last?<i></i></summary><div class="qa-b"><p>With normal brushing and a yearly check-up, decades. The implant itself carries a 25-year warranty.</p></div></details>
+        <details data-up><summary>Am I too old for implants?<i></i></summary><div class="qa-b"><p>Age is rarely the problem. Bone and general health matter more, and we check both on your 3D scan. We regularly treat patients in their seventies and eighties.</p></div></details>
+        <details data-up><summary>What if I don’t have enough bone?<i></i></summary><div class="qa-b"><p>A bone graft or sinus lift builds it up first. You will know on your first visit, with the cost in writing.</p></div></details>
+        <details data-up><summary>How soon do I get my new tooth?<i></i></summary><div class="qa-b"><p>You get a temporary tooth the same week. The final crown goes on after 8 to 14 weeks. With All-on-4, fixed teeth are fitted within 72 hours.</p></div></details>
+        <details data-up><summary>Can I pay in instalments?<i></i></summary><div class="qa-b"><p>Yes. No-cost EMI for up to 12 months, and cashless treatment with major insurers.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta" id="book">
+    <span class="ring"></span><span class="ring b"></span>
+    <div class="cta-in">
+      <div><h2 data-split>Your first visit is free.</h2><p data-up>A consultation and a 3D CBCT scan worth ₹2,500, at no cost. You leave with a written plan and a price, with no obligation.</p></div>
+      <form class="cta-form" id="ctaForm" data-up>
+        <label>Your name<input name="name" required autocomplete="name" placeholder="Full name"></label>
+        <label>Mobile number<input name="phone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile"></label>
+        <label>How many teeth are missing?<select name="teeth"><option>One tooth</option><option>Two to four</option><option>Most or all of them</option><option>Not sure yet</option></select></label>
+        <button class="btn btn-or" type="submit">Book my free consultation <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="fine">We call back within 2 hours, Mon–Sat, 9 AM to 8 PM.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-row">
+    <div><h4>AXIS Implant Centre</h4><p>3rd floor, Linking Road<br>Bandra West, Mumbai 400050</p></div>
+    <div><h4>Hours</h4><p>Mon – Sat · 9 AM – 8 PM<br>Sunday · by appointment</p></div>
+    <div><h4>Contact</h4><p><a href="tel:+910000000000">+91 00000 00000</a><br><a href="mailto:hello@axisimplants.in">hello@axisimplants.in</a></p></div>
+    <div><h4>Explore</h4><p><a href="#implant">The implant</a><br><a href="#options">Options</a><br><a href="#book">Free consultation</a></p></div>
+  </div>
+  <div class="word" aria-hidden="true">AXIS</div>
+  <div class="legal"><span>© 2026 AXIS Implant Centre</span><span>Demo website template by Harsh Tripathi</span></div>
+</footer>
+
+<a class="demo" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20AXIS%20implant%20template.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener"><span>Demo template</span> <i>Want this for your clinic?</i> <b>Harsh Tripathi →</b></a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="page.js"></script>
+<script type="module">
+/* AXIS template · the 3D implant. Crown from a signed-distance shape (marching cubes), post with a real helical thread,
+   translucent bone and gum. Scroll drives: assembled (hero) → exploded → screwed into bone → bone heals → abutment + crown lock on.
+   The model always fits the empty "slot" element in the layout, so it sits right on every screen size. */
+import * as THREE from 'three';
+import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const root = document.documentElement, canvas = document.getElementById('gl'), stage = document.getElementById('stage');
+const story = document.getElementById('implant'), pin = story.querySelector('.as-pin');
+const slotHero = document.getElementById('slotHero'), slotAs = document.getElementById('slotAs');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const AX = (window.AXIS = window.AXIS || {});
+
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { renderer = null; }
+
+/* ---------- crown shape ---------- */
+const len3 = (x, y, z) => Math.sqrt(x * x + y * y + z * z);
+function sdEllipsoid(x, y, z, rx, ry, rz) { const k0 = len3(x / rx, y / ry, z / rz), k1 = len3(x / (rx * rx), y / (ry * ry), z / (rz * rz)); return k1 === 0 ? -Math.min(rx, ry, rz) : k0 * (k0 - 1) / k1; }
+function sdCapsule(px, py, pz, ax, ay, az, bx, by, bz, r) { const pax = px - ax, pay = py - ay, paz = pz - az, bax = bx - ax, bay = by - ay, baz = bz - az; const h = Math.min(1, Math.max(0, (pax * bax + pay * bay + paz * baz) / (bax * bax + bay * bay + baz * baz))); return len3(pax - bax * h, pay - bay * h, paz - baz * h) - r; }
+const smin = (a, b, k) => { const h = Math.max(k - Math.abs(a - b), 0) / k; return Math.min(a, b) - h * h * k * 0.25; };
+const smax = (a, b, k) => -smin(-a, -b, k);
+function crownSDF(x, y, z) {
+  let d = sdEllipsoid(x, y - 0.3, z, 0.66, 0.42, 0.58);
+  d = smin(d, len3(x - 0.29, y - 0.6, z - 0.24) - 0.27, 0.22); d = smin(d, len3(x + 0.29, y - 0.6, z - 0.24) - 0.27, 0.22);
+  d = smin(d, len3(x - 0.29, y - 0.6, z + 0.24) - 0.27, 0.22); d = smin(d, len3(x + 0.29, y - 0.6, z + 0.24) - 0.27, 0.22);
+  d = smin(d, sdEllipsoid(x, y + 0.1, z, 0.5, 0.3, 0.44), 0.24);
+  d = smax(d, -sdCapsule(x, y, z, -0.36, 0.86, 0, 0.36, 0.86, 0, 0.075), 0.09);
+  d = smax(d, -sdCapsule(x, y, z, 0, 0.86, -0.3, 0, 0.86, 0.3, 0.06), 0.08);
+  return d;
+}
+const crownOnlySDF = (x, y, z) => smax(crownSDF(x, y, z), -(y + 0.16), 0.08);
+function meshFromSDF(sdf, res, c, H) {
+  const mc = new MarchingCubes(res, new THREE.MeshBasicMaterial(), false, false, 120000);
+  mc.isolation = 0;
+  const f = mc.field, n = mc.size, half = mc.halfsize;
+  for (let k = 0; k < n; k++) { const z = c[2] + ((k - half) / half) * H;
+    for (let j = 0; j < n; j++) { const y = c[1] + ((j - half) / half) * H, row = k * mc.size2 + j * n;
+      for (let i = 0; i < n; i++) f[row + i] = -sdf(c[0] + ((i - half) / half) * H, y, z); } }
+  mc.update();
+  const count = mc.count, pos = new Float32Array(count * 3), nor = new Float32Array(count * 3);
+  for (let i = 0; i < count * 3; i += 3) {
+    pos[i] = c[0] + mc.positionArray[i] * H; pos[i + 1] = c[1] + mc.positionArray[i + 1] * H; pos[i + 2] = c[2] + mc.positionArray[i + 2] * H;
+    const nx = mc.normalArray[i], ny = mc.normalArray[i + 1], nz = mc.normalArray[i + 2], l = Math.hypot(nx, ny, nz) || 1;
+    nor[i] = nx / l; nor[i + 1] = ny / l; nor[i + 2] = nz / l;
+  }
+  mc.geometry.dispose();
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(nor, 3)); return g;
+}
+
+/* ---------- titanium post with a helical thread, hex platform, and abutment ---------- */
+function makeImplant(metal) {
+  const g = new THREE.Group(), post = new THREE.Group(), abut = new THREE.Group();
+  post.add(new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.1, 1.0, 56), metal));
+  class Helix extends THREE.Curve { getPoint(t, o = new THREE.Vector3()) { const a = t * Math.PI * 2 * 7, y = 0.42 - t * 0.88, r = 0.152 - t * 0.045; return o.set(Math.cos(a) * r, y, Math.sin(a) * r); } }
+  post.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 480, 0.034, 10, false), metal));
+  const tip = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.12, 40), metal); tip.position.y = -0.56; tip.rotation.x = Math.PI; post.add(tip);
+  const hex = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.06, 6), metal); hex.position.y = 0.52; post.add(hex);
+  abut.add(new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.19, 0.34, 56), metal));
+  const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.17, 0.08, 56), metal); collar.position.y = -0.2; abut.add(collar);
+  g.add(post, abut); return { group: g, post, abut };
+}
+
+function start() {
+  const mobile = () => innerWidth < 641;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 1.8));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0; renderer.outputColorSpace = THREE.SRGBColorSpace;
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.75;
+  const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(3, 4, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xff5b1f, 3.4); rim.position.set(-4, 1.5, -3); scene.add(rim);
+  const rim2 = new THREE.DirectionalLight(0xff8a4c, 1.3); rim2.position.set(4, -2, -2.5); scene.add(rim2);
+  const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 60); camera.position.set(0, 0, 9); camera.lookAt(0, 0, 0);
+
+  const glass = !mobile();
+  const metal = new THREE.MeshStandardMaterial({ color: '#c4c9d0', metalness: 1, roughness: 0.26 });
+  const ceramic = new THREE.MeshPhysicalMaterial({ color: '#f4f0e6', roughness: 0.22, clearcoat: 0.9, clearcoatRoughness: 0.15, sheen: 0.5, sheenColor: new THREE.Color('#ffffff'), transparent: true });
+  const metalAb = metal.clone(); metalAb.transparent = true;
+  const BONE0 = new THREE.Color(glass ? '#e9dfcf' : '#f6e8d2'), BONE1 = new THREE.Color('#f0b58f');
+  const boneMat = new THREE.MeshPhysicalMaterial({ color: BONE0.clone(), roughness: 0.55, transmission: glass ? 0.62 : 0, thickness: 1.2, ior: 1.3, transparent: true, opacity: 0, depthWrite: false, emissive: new THREE.Color('#ff5b1f'), emissiveIntensity: 0 });
+  const gumMat = new THREE.MeshPhysicalMaterial({ color: '#d57878', roughness: 0.45, transmission: glass ? 0.35 : 0, thickness: 0.4, transparent: true, opacity: 0, depthWrite: false });
+  const BONE_MAX = glass ? 1 : 0.64, GUM_MAX = glass ? 1 : 0.75;
+
+  const model = new THREE.Group(); scene.add(model);
+  const spin = new THREE.Group(); model.add(spin);
+  const crown = new THREE.Mesh(meshFromSDF(crownOnlySDF, mobile() ? 56 : 76, [0, 0.38, 0], 0.72), ceramic); spin.add(crown);
+  const imp = makeImplant(metal); spin.add(imp.group);
+  imp.abut.children.forEach(c => (c.material = metalAb));
+  const bone = new THREE.Mesh(new RoundedBoxGeometry(1.5, 1.5, 1.0, 4, 0.12), boneMat); bone.position.y = -1.11; bone.renderOrder = 2; spin.add(bone);
+  const gum = new THREE.Mesh(new RoundedBoxGeometry(1.54, 0.2, 1.04, 4, 0.08), gumMat); gum.position.y = -0.27; gum.renderOrder = 3; spin.add(gum);
+  const rings = [];
+  for (let i = 0; i < 4; i++) {
+    const r = new THREE.Mesh(new THREE.TorusGeometry(0.2, 0.012, 8, 72), new THREE.MeshBasicMaterial({ color: '#ff6a2a', transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
+    r.rotation.x = Math.PI / 2; r.position.y = -0.55 - i * 0.22; r.renderOrder = 4; spin.add(r); rings.push(r);
+  }
+
+  const tagEl = {}; document.querySelectorAll('.tag').forEach(t => (tagEl[t.dataset.tag] = t));
+  const anchors = {
+    crown: [crown, new THREE.Vector3(0.62, 0.4, 0.1)], abutment: [imp.abut, new THREE.Vector3(0.18, 0, 0.05)],
+    post: [imp.post, new THREE.Vector3(0.17, 0.05, 0.05)], bone: [bone, new THREE.Vector3(0.75, 0.25, 0.45)], heal: [rings[1], new THREE.Vector3(0.22, 0, 0)]
+  };
+  const hud = { depth: document.getElementById('hDepth'), torque: document.getElementById('hTorque'), heal: document.getElementById('hHeal'), rows: [...document.querySelectorAll('.hud div')] };
+
+  let W = 1, H = 1, heroR = null, asR = null;
+  const measure = () => {
+    const a = slotHero.getBoundingClientRect(); heroR = { cx: a.left + a.width / 2, cy: a.top + scrollY + a.height / 2, h: a.height };
+    const b = slotAs.getBoundingClientRect(), pr = pin.getBoundingClientRect(); asR = { cx: b.left + b.width / 2, cy: b.top - pr.top + b.height / 2, h: b.height };
+  };
+  function resize() { W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); measure(); }
+  resize(); addEventListener('resize', resize);
+  if (document.fonts) document.fonts.ready.then(measure);
+  addEventListener('load', measure);
+
+  const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+  addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; tilt.tx = (e.clientY / H - 0.5) * 0.3; tilt.ty = (e.clientX / W - 0.5) * 0.5; }, { passive: true });
+
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const sstep = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const damp = (c, t, k, dt) => c + (t - c) * (1 - Math.exp(-k * dt));
+  const S = { cx: 0, cy: 0, h: 1, span: 2.5, ctr: -0.24, first: true };
+  const v3 = new THREE.Vector3();
+  let last = performance.now(), t = 0, visible = true, lastHud = '';
+  stage.classList.add('ready');
+
+  function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now; t += dt;
+    const r = story.getBoundingClientRect();
+    const intro = clamp(1 - r.top / H), p = clamp(-r.top / Math.max(1, r.height - H));
+    const past = r.bottom < H * 0.3;
+    if (past === visible) { visible = !past; stage.classList.toggle('off', past); }
+    if (!visible) return;
+    AX.p = p; AX.intro = intro;
+    const e = sstep(0.3, 1, intro);
+
+    // where on screen, and how much of the model must fit
+    const m = mobile();
+    const xA = sstep(0.24, 0.31, p);
+    const spanAs = lerp(m ? 4.5 : 4.4, m ? 3.0 : 3.1, xA), ctrAs = lerp(0.3, -0.5, xA);
+    const tgt = { cx: lerp(heroR.cx, asR.cx, e), cy: lerp(heroR.cy, asR.cy, e), h: lerp(heroR.h, asR.h, e), span: lerp(2.45, spanAs, e), ctr: lerp(-0.24, ctrAs, e) };
+    for (const key of ['cx', 'cy', 'h', 'span', 'ctr']) S[key] = S.first || RM ? tgt[key] : damp(S[key], tgt[key], 6, dt);
+    S.first = false;
+    const wpp = (2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z) / H;
+    const s = (S.h * wpp) / S.span;
+    model.scale.setScalar(s);
+    model.position.set((S.cx - W / 2) * wpp, -(S.cy - H / 2) * wpp - S.ctr * s + (RM ? 0 : Math.sin(t * 1.2) * 0.04 * (1 - e)), 0);
+
+    // parts
+    const xB = sstep(0.28, 0.5, p), heal = sstep(0.53, 0.73, p), xD1 = sstep(0.77, 0.86, p), xD2 = sstep(0.84, 0.96, p);
+    const crownY = lerp(lerp(lerp(0.05, 1.55, e), 2.7, xA), 0.05, xD2);
+    const abutY = lerp(lerp(lerp(-0.2, 0.95, e), 2.15, xA), -0.2, xD1);
+    const postY = lerp(lerp(-0.82, 0.45, e), -0.82, xB);
+    crown.position.y = crownY; imp.abut.position.y = abutY; imp.post.position.y = postY;
+    ceramic.opacity = Math.max(1 - xA, sstep(0.83, 0.88, p)); metalAb.opacity = Math.max(1 - xA, sstep(0.76, 0.8, p));
+    crown.visible = ceramic.opacity > 0.01; imp.abut.visible = metalAb.opacity > 0.01;
+    imp.post.rotation.y = -xB * 1.27 * (7 / 0.88) * Math.PI * 2;
+    const boneO = e * sstep(0.02, 0.12, p);
+    boneMat.opacity = boneO * BONE_MAX; gumMat.opacity = boneO * GUM_MAX; bone.visible = gum.visible = boneO > 0.01;
+    boneMat.color.copy(BONE0).lerp(BONE1, heal * 0.35 * (1 - 0.5 * xD2)); boneMat.emissiveIntensity = heal * 0.12 * (1 - xD2);
+    rings.forEach((rg, i) => { const o = heal * (0.45 + 0.45 * Math.sin(t * 3 - i * 0.9)) * (1 - 0.8 * xD1); rg.material.opacity = o; rg.scale.setScalar(1 + heal * 0.55 + 0.12 * Math.sin(t * 2 + i)); rg.visible = o > 0.01; });
+
+    // rotation
+    tilt.x = damp(tilt.x, tilt.tx, 3, dt); tilt.y = damp(tilt.y, tilt.ty, 3, dt);
+    const sp = RM ? 0 : e < 0.5 ? 0.35 : (p > 0.26 && p < 0.52 ? 0.08 : 0.2);
+    spin.rotation.set(0.14 + tilt.x * 0.6, spin.rotation.y + dt * sp + 0 * tilt.y, -0.06);
+    model.rotation.y = tilt.y * 0.6;
+
+    // HUD readout
+    const depth = xB * 11.5, torque = xB < 0.02 ? 0 : Math.round(lerp(8, 35, xB)), wk = Math.round(heal * 12);
+    const sig = depth.toFixed(1) + '|' + torque + '|' + wk;
+    if (sig !== lastHud) {
+      lastHud = sig;
+      hud.depth.innerHTML = depth.toFixed(1) + '<span>mm</span>';
+      hud.torque.innerHTML = torque + '<span>Ncm</span>';
+      hud.heal.innerHTML = wk + '<span>' + (wk === 1 ? 'week' : 'weeks') + '</span>';
+    }
+    const ph = p < 0.26 ? 0 : p < 0.52 ? 1 : p < 0.76 ? 2 : 3;
+    hud.rows.forEach(row => row.classList.toggle('live', e > 0.9 && ((ph === 1 && row.dataset.k !== 'heal') || (ph === 2 && row.dataset.k === 'heal'))));
+
+    // labels
+    const full = e > 0.98;
+    const show = { crown: full && ((p > 0.04 && p < 0.22) || p > 0.97), abutment: full && p > 0.06 && p < 0.22, post: full && p > 0.08 && p < 0.22, bone: full && p > 0.33 && p < 0.5, heal: full && p > 0.58 && p < 0.75 };
+    model.updateMatrixWorld();
+    for (const name in anchors) {
+      const el = tagEl[name]; if (!el) continue;
+      el.classList.toggle('show', !!show[name]); if (!show[name]) continue;
+      const [obj, pt] = anchors[name];
+      v3.copy(pt).applyMatrix4(obj.matrixWorld).project(camera);
+      const px = (v3.x * 0.5 + 0.5) * W, py = (-v3.y * 0.5 + 0.5) * H, ew = el.offsetWidth || 160;
+      const flip = px + ew + 8 > W;
+      el.classList.toggle('left', flip);
+      el.style.transform = `translate(${Math.max(6, flip ? px - ew : px).toFixed(1)}px,${(py - 12).toFixed(1)}px)`;
+    }
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
+}
+
+if (!renderer || !renderer.getContext()) root.classList.add('no-gl');
+else start();
+</script>
+</body>
+</html>

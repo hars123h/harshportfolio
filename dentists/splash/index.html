@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLEAM Dental Co. · Whitening, aligners and same-day dentistry in Jubilee Hills</title>
+<meta name="description" content="A modern dental studio in Jubilee Hills, Hyderabad. Whitening, clear aligners, implants, kids’ dentistry and same-day emergencies. Book in 30 seconds.">
+<meta name="theme-color" content="#2546ff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23d6ff3d'/%3E%3Cpath d='M10 7.5c-3.2 0-4.4 3.2-3.8 6.4.6 2.8 1.6 4.9 2.1 7.9.4 2 2.8 2 3.2-.1l1-4.2c.4-1.3 2.6-1.3 3 0l1 4.2c.4 2.1 2.8 2.1 3.2.1.5-3 1.5-5.1 2.1-7.9.6-3.2-.6-6.4-3.8-6.4-2.2 0-3.4 1.3-6.2 1.3S12.2 7.5 10 7.5Z' fill='%230b1236' transform='translate(3.2 1)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500..800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script>(function(d){if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');setTimeout(function(){if(!window.__ready)d.classList.remove('anim')},4000)}})(document.documentElement)</script>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#top" aria-label="GLEAM Dental Co., back to top"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 4c-2.6 0-3.6 2.6-3.1 5.2.5 2.3 1.3 4 1.7 6.4.3 1.6 2.3 1.6 2.6-.1l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.7 2.3 1.7 2.6.1.4-2.4 1.2-4.1 1.7-6.4.5-2.6-.5-5.2-3.1-5.2-1.8 0-2.8 1-5 1s-3.2-1-5-1Z" fill="currentColor" transform="translate(2.2 1.5)"/></svg></span>GLEAM</a>
+    <nav class="links" aria-label="Main"><a href="#treatments">Treatments</a><a href="#stories">Stories</a><a href="#club">Gleam Club</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn-lime sm" href="#book">Book now</a>
+    <button class="burger" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<nav class="sheet" id="sheet" aria-label="Mobile" aria-hidden="true">
+  <a href="#treatments">Treatments</a><a href="#stories">Stories</a><a href="#club">Gleam Club</a><a href="#faq">FAQ</a>
+  <div class="sfoot"><a class="btn btn-lime" href="#book">Book in 30 seconds</a><a class="btn btn-ghost" href="tel:+910000000000">Call +91 00000 00000</a></div>
+</nav>
+
+<main id="top">
+  <!-- HERO: the 3D tooth sits in the gap inside the headline -->
+  <section class="hero" id="hero">
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <h1 aria-label="Big, bright smiles. Zero drama.">
+      <span class="ln l1" aria-hidden="true"><span>Big, bright</span></span>
+      <span class="ln l2" aria-hidden="true"><span class="hole" id="hole" title="Drag to spin"></span><span>smiles.</span></span>
+      <span class="ln l3" aria-hidden="true"><span>Zero drama.</span></span>
+    </h1>
+    <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.7 6.6 4.9 10.8 12 12-7.1 1.2-11.3 5.4-12 12C11.3 17.4 7.1 13.2 0 12c7.1-1.2 11.3-5.4 12-12Z" fill="currentColor"/></svg>
+    <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.7 6.6 4.9 10.8 12 12-7.1 1.2-11.3 5.4-12 12C11.3 17.4 7.1 13.2 0 12c7.1-1.2 11.3-5.4 12-12Z" fill="currentColor"/></svg>
+    <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.7 6.6 4.9 10.8 12 12-7.1 1.2-11.3 5.4-12 12C11.3 17.4 7.1 13.2 0 12c7.1-1.2 11.3-5.4 12-12Z" fill="currentColor"/></svg>
+    <span class="hint" id="hint">Drag the tooth to spin it</span>
+    <div class="hero-row">
+      <p data-up>Whitening, clear aligners and everyday dentistry in a studio that feels nothing like a clinic. Jubilee Hills, Hyderabad.</p>
+      <div class="acts" data-up><a class="btn btn-lime" href="#book">Book in 30 seconds <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="#treatments">See treatments</a></div>
+      <div class="rate" data-up><b>4.9</b><span>2,800+ Google reviews<small>Open 7 days · 9 AM – 9 PM</small></span></div>
+    </div>
+  </section>
+
+  <!-- TREATMENTS: big rows, picture follows the cursor -->
+  <section class="sec" id="treatments">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="tagline" data-up>Treatments</span><h2 data-up>What we’re great at.</h2></div><p data-up>Six things we do every day, with prices on the page. Hover a row to peek inside, tap it on your phone.</p></div>
+      <div class="svc" id="svc">
+        <button class="row" type="button" aria-expanded="false" data-img="0"><span class="n">01</span><span class="t">Teeth whitening</span><span class="p">₹9,500</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>Up to 8 shades brighter in one 60-minute visit, with a sensitivity-safe gel.</p><span class="pm">₹9,500 · 60 minutes</span><span class="mimg"><picture><source srcset="img/svc-whitening.avif" type="image/avif"><img src="img/svc-whitening.jpg" alt="A bright white smile" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+        <button class="row" type="button" aria-expanded="false" data-img="1"><span class="n">02</span><span class="t">Clear aligners</span><span class="p">from ₹65,000</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>Invisible trays planned on a 3D scan. See your final smile before you pay a rupee.</p><span class="pm">from ₹65,000 · 6–12 months</span><span class="mimg"><picture><source srcset="img/svc-aligners.avif" type="image/avif"><img src="img/svc-aligners.jpg" alt="A dental model with braces" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+        <button class="row" type="button" aria-expanded="false" data-img="2"><span class="n">03</span><span class="t">Dental implants</span><span class="p">from ₹30,000</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>A missing tooth replaced with a titanium root and a ceramic crown that matches your smile.</p><span class="pm">from ₹30,000 · 2–3 visits</span><span class="mimg"><picture><source srcset="img/svc-implants.avif" type="image/avif"><img src="img/svc-implants.jpg" alt="A model of a dental implant between teeth" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+        <button class="row" type="button" aria-expanded="false" data-img="3"><span class="n">04</span><span class="t">Check-up &amp; clean</span><span class="p">₹1,500</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>Scan, scale and polish in 45 minutes, with your X-ray explained on screen.</p><span class="pm">₹1,500 · 45 minutes</span><span class="mimg"><picture><source srcset="img/svc-checkup.avif" type="image/avif"><img src="img/svc-checkup.jpg" alt="A dentist checking a patient’s teeth" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+        <button class="row" type="button" aria-expanded="false" data-img="4"><span class="n">05</span><span class="t">Kids’ dentistry</span><span class="p">₹500</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>Fun first visits, fluoride and sealants, and cartoons on the ceiling.</p><span class="pm">₹500 · 30 minutes</span><span class="mimg"><picture><source srcset="img/svc-kids.avif" type="image/avif"><img src="img/svc-kids.jpg" alt="A laughing child in a winter hood" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+        <button class="row" type="button" aria-expanded="false" data-img="5"><span class="n">06</span><span class="t">Same-day emergencies</span><span class="p">from ₹800</span><span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="more"><span><p>Toothache, a chip or a lost filling? Seen today, seven days a week.</p><span class="pm">from ₹800 · same day</span><span class="mimg"><picture><source srcset="img/svc-emergency.avif" type="image/avif"><img src="img/svc-emergency.jpg" alt="Dentists treating a patient" width="800" height="600" loading="lazy"></picture></span></span></span></button>
+      </div>
+    </div>
+    <div class="follow" id="follow" aria-hidden="true">
+      <img src="img/svc-whitening.jpg" alt="" loading="lazy"><img src="img/svc-aligners.jpg" alt="" loading="lazy"><img src="img/svc-implants.jpg" alt="" loading="lazy"><img src="img/svc-checkup.jpg" alt="" loading="lazy"><img src="img/svc-kids.jpg" alt="" loading="lazy"><img src="img/svc-emergency.jpg" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <!-- NUMBERS: odometer -->
+  <section class="sec" style="padding-top:0" aria-label="GLEAM in numbers">
+    <div class="wrap nums">
+      <div class="num" data-up><span class="odo" data-odo="9,400+"></span><p>smiles brightened since 2014</p></div>
+      <div class="num" data-up><span class="odo" data-odo="4.9"></span><p>stars from 2,800+ Google reviews</p></div>
+      <div class="num" data-up><span class="odo" data-odo="6 min"></span><p>average wait in the lounge</p></div>
+      <div class="num" data-up><span class="odo" data-odo="7 days"></span><p>a week, 9 AM to 9 PM</p></div>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="sec" id="stories" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="tagline ghost" data-up>Patient stories</span><h2 data-up>Real people, real grins.</h2></div><p data-up>Tap a story to watch it. Every one of them sat in our chair.</p></div>
+      <div class="stories" id="storyRow" data-up>
+        <button class="story" type="button" data-i="0"><picture><source srcset="img/st-1.avif" type="image/avif"><img src="img/st-1.jpg" alt="Ishita smiling" width="540" height="960" loading="lazy"></picture><span class="who"><span class="ring"><span>IS</span></span>Ishita</span><span class="cap">“Six shades brighter before my wedding.”<small>Whitening</small></span></button>
+        <button class="story" type="button" data-i="1"><picture><source srcset="img/st-2.avif" type="image/avif"><img src="img/st-2.jpg" alt="Aarav laughing" width="540" height="960" loading="lazy"></picture><span class="who"><span class="ring"><span>AA</span></span>Aarav, 7</span><span class="cap">“The dentist let me press the chair button.”<small>Kids’ check-up</small></span></button>
+        <button class="story" type="button" data-i="2"><picture><source srcset="img/st-3.avif" type="image/avif"><img src="img/st-3.jpg" alt="Rohan laughing with his mother" width="540" height="960" loading="lazy"></picture><span class="who"><span class="ring"><span>RO</span></span>Rohan &amp; mom</span><span class="cap">“Mom can eat corn again.”<small>Implants</small></span></button>
+        <button class="story" type="button" data-i="3"><picture><source srcset="img/st-4.avif" type="image/avif"><img src="img/st-4.jpg" alt="Zoya smiling" width="540" height="960" loading="lazy"></picture><span class="who"><span class="ring"><span>ZO</span></span>Zoya</span><span class="cap">“Nobody noticed I was wearing aligners.”<small>Clear aligners</small></span></button>
+        <button class="story" type="button" data-i="4"><picture><source srcset="img/st-5.avif" type="image/avif"><img src="img/st-5.jpg" alt="Kamala smiling" width="540" height="960" loading="lazy"></picture><span class="who"><span class="ring"><span>KA</span></span>Kamala, 76</span><span class="cap">“My new dentures don’t click.”<small>Dentures</small></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUB -->
+  <section class="wrap" id="club">
+    <div class="club">
+      <div class="card-wrap" data-up><div class="mcard" id="mcard"><div class="top"><span>GLEAM CLUB</span><span class="chip"></span></div><div class="name">Your name here</div><div class="meta"><span>Member since 2026</span><span>Unlimited smiles</span></div></div></div>
+      <div>
+        <span class="tagline" data-up>Membership</span>
+        <h2 data-up style="margin-top:14px">Join the Gleam Club. <em>Smile more, pay less.</em></h2>
+        <p class="price" data-up>₹499<small> / month</small></p>
+        <ul data-up>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Two check-ups and cleans a year</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>A whitening top-up every year</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>20% off every other treatment</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority same-day slots</li>
+        </ul>
+        <a class="btn btn-lime" href="#book" data-up>Join the club <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK: chat -->
+  <section class="sec" id="book">
+    <div class="wrap book">
+      <div class="lead">
+        <span class="tagline" data-up>Book</span>
+        <h2 data-up>Book in 30 seconds. Seriously.</h2>
+        <p data-up>Answer three quick questions and we’ll confirm on WhatsApp. No forms, no hold music.</p>
+        <div class="contact" data-up>
+          <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Road No. 36, Jubilee Hills, Hyderabad 500033</span>
+          <a href="tel:+910000000000"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+91 00000 00000</a>
+          <span><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Open 7 days · 9 AM – 9 PM</span>
+        </div>
+      </div>
+      <div class="chat" id="chat" data-up>
+        <div class="chat-top"><span class="av"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 4c-2.6 0-3.6 2.6-3.1 5.2.5 2.3 1.3 4 1.7 6.4.3 1.6 2.3 1.6 2.6-.1l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.7 2.3 1.7 2.6.1.4-2.4 1.2-4.1 1.7-6.4.5-2.6-.5-5.2-3.1-5.2-1.8 0-2.8 1-5 1s-3.2-1-5-1Z" fill="currentColor" transform="translate(2.2 1.5)"/></svg></span><span><b>GLEAM front desk</b><small><i></i>Replies in minutes</small></span><button type="button" id="chatReset">Start over</button></div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="opts" id="opts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: two independent columns -->
+  <section class="sec" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="tagline ghost" data-up>FAQ</span><h2 data-up>Quick answers.</h2></div></div>
+      <div class="qa">
+        <div class="qa-col">
+          <details data-up><summary>Does whitening hurt?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>Most people feel nothing. Some feel a mild tingle for a day, so we use a sensitivity-safe gel and check in between rounds.</p></div></details>
+          <details data-up><summary>How long do aligners take?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>Six to twelve months for most smiles. Your 3D plan shows the exact timeline before you start.</p></div></details>
+          <details data-up><summary>Do you take walk-ins?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>For emergencies, always. For everything else, book in 30 seconds above and skip the wait.</p></div></details>
+        </div>
+        <div class="qa-col">
+          <details data-up><summary>Is there parking?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>Yes, free valet parking at the door.</p></div></details>
+          <details data-up><summary>Can I pay in instalments?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>Yes. No-cost EMI up to 12 months on aligners and implants, and UPI or cards for everything.</p></div></details>
+          <details data-up><summary>Do you treat kids?<i><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="qa-b"><p>From their first tooth. Kids’ visits are short, fun and parents stay in the room.</p></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="#top"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 4c-2.6 0-3.6 2.6-3.1 5.2.5 2.3 1.3 4 1.7 6.4.3 1.6 2.3 1.6 2.6-.1l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.7 2.3 1.7 2.6.1.4-2.4 1.2-4.1 1.7-6.4.5-2.6-.5-5.2-3.1-5.2-1.8 0-2.8 1-5 1s-3.2-1-5-1Z" fill="currentColor" transform="translate(2.2 1.5)"/></svg></span>GLEAM</a><p class="about">A modern dental studio in Jubilee Hills, Hyderabad. Big, bright smiles, zero drama.</p></div>
+      <div><h4>Visit</h4><ul><li>Road No. 36, Jubilee Hills</li><li>Hyderabad 500033</li><li>Free valet parking</li></ul></div>
+      <div><h4>Hours</h4><ul><li>Every day</li><li>9 AM – 9 PM</li><li>Emergencies, same day</li></ul></div>
+      <div><h4>Say hi</h4><ul><li><a href="tel:+910000000000">+91 00000 00000</a></li><li><a href="mailto:hi@gleamdental.in">hi@gleamdental.in</a></li><li><a href="#book">Book online</a></li></ul></div>
+    </div>
+  </div>
+  <div class="gleam" id="gleam" aria-hidden="true">GLEAM</div>
+  <div class="wrap legal"><span>© 2026 GLEAM Dental Co.</span><span>Demo website template by Harsh Tripathi</span></div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-label="Patient story" aria-hidden="true">
+  <div class="vframe"><img id="vImg" alt=""><div class="bars" id="vBars"></div>
+    <div class="vtop"><span class="ring" style="width:34px;height:34px;border-radius:50%;padding:2px;background:conic-gradient(#d6ff3d,#ff8fb8,#2546ff,#d6ff3d)"></span><span id="vWho"></span><button class="x" type="button" id="vClose" aria-label="Close story"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <button class="vprev" type="button" aria-label="Previous story"></button><button class="vnext" type="button" aria-label="Next story"></button>
+    <div class="vtxt"><blockquote id="vQ"></blockquote><span id="vT"></span></div>
+  </div>
+</div>
+
+<div class="mbar"><a class="btn btn-white" href="tel:+910000000000"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a><a class="btn btn-blue" href="#book">Book in 30 seconds</a></div>
+<a class="demo" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20GLEAM%20dental%20template.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener"><span>Demo template</span> <i>Want this for your clinic?</i> <b>Harsh Tripathi →</b></a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="page.js"></script>
+<script type="module">
+/* GLEAM template · the 3D tooth in the headline. A molar built from a signed-distance shape (marching cubes),
+   iridescent glossy material, blue and lime rim lights. It sits exactly in the gap (#hole) in the headline,
+   spins on its own, can be dragged, and flies up as the hero scrolls away. */
+import * as THREE from 'three';
+import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const root = document.documentElement, hero = document.getElementById('hero'), hole = document.getElementById('hole'), canvas = document.getElementById('gl');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { renderer = null; }
+
+const len3 = (x, y, z) => Math.sqrt(x * x + y * y + z * z);
+function sdEllipsoid(x, y, z, rx, ry, rz) { const k0 = len3(x / rx, y / ry, z / rz), k1 = len3(x / (rx * rx), y / (ry * ry), z / (rz * rz)); return k1 === 0 ? -Math.min(rx, ry, rz) : k0 * (k0 - 1) / k1; }
+function sdCapsule(px, py, pz, ax, ay, az, bx, by, bz, r) { const pax = px - ax, pay = py - ay, paz = pz - az, bax = bx - ax, bay = by - ay, baz = bz - az; const h = Math.min(1, Math.max(0, (pax * bax + pay * bay + paz * baz) / (bax * bax + bay * bay + baz * baz))); return len3(pax - bax * h, pay - bay * h, paz - baz * h) - r; }
+function sdTaper(px, py, pz, ax, ay, az, bx, by, bz, r1, r2) { const bax = bx - ax, bay = by - ay, baz = bz - az, L2 = bax * bax + bay * bay + baz * baz; const h = Math.min(1, Math.max(0, ((px - ax) * bax + (py - ay) * bay + (pz - az) * baz) / L2)); return len3(px - ax - bax * h, py - ay - bay * h, pz - az - baz * h) - (r1 + (r2 - r1) * h * h); }
+const smin = (a, b, k) => { const h = Math.max(k - Math.abs(a - b), 0) / k; return Math.min(a, b) - h * h * k * 0.25; };
+const smax = (a, b, k) => -smin(-a, -b, k);
+function toothSDF(x, y, z) {
+  let d = sdEllipsoid(x, y - 0.3, z, 0.66, 0.42, 0.58);
+  d = smin(d, len3(x - 0.29, y - 0.6, z - 0.24) - 0.27, 0.22); d = smin(d, len3(x + 0.29, y - 0.6, z - 0.24) - 0.27, 0.22);
+  d = smin(d, len3(x - 0.29, y - 0.6, z + 0.24) - 0.27, 0.22); d = smin(d, len3(x + 0.29, y - 0.6, z + 0.24) - 0.27, 0.22);
+  d = smin(d, sdEllipsoid(x, y + 0.1, z, 0.5, 0.3, 0.44), 0.24);
+  d = smax(d, -sdCapsule(x, y, z, -0.36, 0.86, 0, 0.36, 0.86, 0, 0.075), 0.09);
+  d = smax(d, -sdCapsule(x, y, z, 0, 0.86, -0.3, 0, 0.86, 0.3, 0.06), 0.08);
+  const r = Math.min(sdTaper(x, y, z, -0.24, -0.1, 0.08, -0.36, -1.28, 0.14, 0.22, 0.06), sdTaper(x, y, z, 0.24, -0.1, 0.08, 0.33, -1.22, 0.1, 0.22, 0.06), sdTaper(x, y, z, 0, -0.1, -0.2, 0.03, -1.1, -0.4, 0.2, 0.06));
+  return smin(d, r, 0.2);
+}
+function meshFromSDF(sdf, res, c, H) {
+  const mc = new MarchingCubes(res, new THREE.MeshBasicMaterial(), false, false, 120000); mc.isolation = 0;
+  const f = mc.field, n = mc.size, half = mc.halfsize;
+  for (let k = 0; k < n; k++) { const z = c[2] + ((k - half) / half) * H; for (let j = 0; j < n; j++) { const y = c[1] + ((j - half) / half) * H, row = k * mc.size2 + j * n; for (let i = 0; i < n; i++) f[row + i] = -sdf(c[0] + ((i - half) / half) * H, y, z); } }
+  mc.update();
+  const count = mc.count, pos = new Float32Array(count * 3), nor = new Float32Array(count * 3);
+  for (let i = 0; i < count * 3; i += 3) { pos[i] = c[0] + mc.positionArray[i] * H; pos[i + 1] = c[1] + mc.positionArray[i + 1] * H; pos[i + 2] = c[2] + mc.positionArray[i + 2] * H;
+    const nx = mc.normalArray[i], ny = mc.normalArray[i + 1], nz = mc.normalArray[i + 2], l = Math.hypot(nx, ny, nz) || 1; nor[i] = nx / l; nor[i + 1] = ny / l; nor[i + 2] = nz / l; }
+  mc.geometry.dispose();
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(nor, 3)); g.center(); return g;
+}
+
+function start() {
+  const mobile = innerWidth < 641;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.7 : 1.8));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
+  const scene = new THREE.Scene();
+  scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.9;
+  const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(2, 3, 5); scene.add(key);
+  const rimA = new THREE.DirectionalLight(0xd6ff3d, 2.6); rimA.position.set(-4, 1, -2); scene.add(rimA);
+  const rimB = new THREE.DirectionalLight(0x7d9bff, 2.4); rimB.position.set(4, -1, -3); scene.add(rimB);
+  const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 60); camera.position.set(0, 0, 10);
+  const mat = new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.18, clearcoat: 1, clearcoatRoughness: 0.08, iridescence: 0.6, iridescenceIOR: 1.4, iridescenceThicknessRange: [180, 520], sheen: 0.4, sheenColor: new THREE.Color('#cfe0ff') });
+  const tooth = new THREE.Mesh(meshFromSDF(toothSDF, mobile ? 64 : 84, [0, -0.2, 0], 1.18), mat);
+  const g = new THREE.Group(); g.add(tooth); scene.add(g);
+  tooth.geometry.computeBoundingBox(); const span = tooth.geometry.boundingBox.max.y - tooth.geometry.boundingBox.min.y;
+
+  let W = 1, H = 1;
+  const resize = () => { const r = hero.getBoundingClientRect(); W = r.width; H = r.height; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); };
+  resize(); addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(hero);
+
+  // drag to spin (with momentum); hovering tilts it a little
+  const spin = { y: 0.6, vy: 0, x: 0.18, vx: 0, drag: false, px: 0, py: 0, tiltX: 0, tiltY: 0 };
+  hole.addEventListener('pointerdown', e => { spin.drag = true; spin.px = e.clientX; spin.py = e.clientY; hole.setPointerCapture(e.pointerId); window.GLEAM && GLEAM.dragged && GLEAM.dragged(); });
+  hole.addEventListener('pointermove', e => { if (!spin.drag) return; const dx = e.clientX - spin.px, dy = e.clientY - spin.py; spin.px = e.clientX; spin.py = e.clientY; spin.vy = dx * 0.012; spin.vx = dy * 0.008; spin.y += spin.vy; spin.x = Math.max(-0.7, Math.min(0.9, spin.x + spin.vx)); });
+  const up = () => (spin.drag = false); hole.addEventListener('pointerup', up); hole.addEventListener('pointercancel', up);
+  hero.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; spin.tiltY = (e.clientX / innerWidth - 0.5) * 0.4; spin.tiltX = (e.clientY / innerHeight - 0.5) * 0.25; });
+
+  let last = performance.now(), t = 0, ent = RM ? 1 : 0;
+  function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now; t += dt;
+    const hr = hero.getBoundingClientRect(); if (hr.bottom < 0 || hr.top > innerHeight) return;
+    const p = Math.min(1, Math.max(0, -hr.top / hr.height));
+    ent = Math.min(1, ent + dt * 0.9);
+    const eo = 1 - Math.pow(1 - ent, 3);
+    // spin
+    if (!spin.drag) { spin.vy *= 0.95; spin.vx *= 0.9; spin.y += spin.vy + (RM ? 0 : dt * 0.55); spin.x += (0.18 - spin.x) * 0.03; }
+    g.rotation.set(spin.x + spin.tiltX, spin.y + spin.tiltY + p * 3 + (1 - eo) * -3, -0.12 + Math.sin(t * 0.8) * 0.05 * (RM ? 0 : 1));
+    // place it in the hole
+    const b = hole.getBoundingClientRect(), cx = b.left - hr.left + b.width / 2, cy = b.top - hr.top + b.height / 2;
+    const wpp = (2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z) / H;
+    const s = (b.height * 1.3 * wpp / span) * (0.2 + 0.8 * eo) * (1 + p * 0.9);
+    g.scale.setScalar(s);
+    g.position.set((cx - W / 2) * wpp, -(cy - H / 2) * wpp + p * H * wpp * 0.35 + (RM ? 0 : Math.sin(t * 1.6) * b.height * wpp * 0.04), 0);
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
+}
+if (!renderer || !renderer.getContext()) root.classList.add('no-gl'); else start();
+</script>
+</body>
+</html>

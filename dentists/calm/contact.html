@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a visit · Sage Family Dental</title>
+<meta name="description" content="Book a dental visit for one person or the whole family. We confirm on WhatsApp within the hour.">
+<meta name="theme-color" content="#f7f2ea">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' aria-hidden='true'><circle cx='20' cy='20' r='20' fill='%232e4a3b'/><path d='M13 12.5c-2.6 0-3.6 2.6-3 5.2.4 2.2 1.2 3.9 1.6 6.3.4 1.6 2.3 1.6 2.6 0l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.6 2.2 1.6 2.6 0 .4-2.4 1.2-4.1 1.6-6.3.6-2.6-.4-5.2-3-5.2-1.7 0-2.7 1-5 1s-3.3-1-5-1Z' fill='%23f7f2ea' transform='translate(4 1)'/><path d='M27 9c-3 0-5 2-5 5 3 0 5-2 5-5Z' fill='%23a9c1a6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:opsz,wght@6..12,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>(function(d){if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');setTimeout(function(){if(!window.__ready)d.classList.remove('anim')},4000)}})(document.documentElement)</script>
+</head>
+<body class="pg-contact">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="index.html" aria-label="Sage Family Dental, home"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#2e4a3b"/><path d="M13 12.5c-2.6 0-3.6 2.6-3 5.2.4 2.2 1.2 3.9 1.6 6.3.4 1.6 2.3 1.6 2.6 0l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.6 2.2 1.6 2.6 0 .4-2.4 1.2-4.1 1.6-6.3.6-2.6-.4-5.2-3-5.2-1.7 0-2.7 1-5 1s-3.3-1-5-1Z" fill="#f7f2ea" transform="translate(4 1)"/><path d="M27 9c-3 0-5 2-5 5 3 0 5-2 5-5Z" fill="#a9c1a6"/></svg><span><b>Sage</b><small>Family Dental</small></span></a>
+    <nav class="nav" aria-label="Main"><span class="blob" aria-hidden="true"></span><a href="index.html">Home</a><a href="services.html">Services</a><a href="plans.html">Family plans</a><a href="contact.html" aria-current="page">Visit us</a></nav>
+    <a class="btn btn-dk sm" href="contact.html">Book a visit</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<nav class="sheet" aria-label="Mobile" aria-hidden="true"><a href="index.html">Home</a><a href="services.html">Services</a><a href="plans.html">Family plans</a><a href="contact.html" aria-current="page">Visit us</a>
+  <div class="sfoot"><a class="btn btn-dk" href="contact.html">Book a visit <svg class="ic arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="tel:+910000000000"><svg class="ic " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call +91 00000 00000</a></div>
+</nav>
+<main>
+<section class="phero"><div class="wrap">
+  <span class="chip" data-up><i></i>Visit us</span>
+  <h1 data-lines>Book a visit for one, <em>or for everyone.</em></h1>
+  <p data-up>Tell us who’s coming and when suits you. We’ll line up the slots and confirm on WhatsApp within the hour.</p>
+</div></section>
+<section class="sec" style="padding-top:0">
+  <div class="wrap book-wrap">
+    <form class="bk" id="bk" data-up novalidate>
+      <fieldset><legend>Who’s coming?</legend>
+        <div class="people">
+          <div class="stepper" data-k="adults"><span>Adults<small>13 and up</small></span><span class="ctl"><button type="button" data-d="-1" aria-label="One less adult">−</button><output>1</output><button type="button" data-d="1" aria-label="One more adult">+</button></span></div>
+          <div class="stepper" data-k="kids"><span>Children<small>Under 13</small></span><span class="ctl"><button type="button" data-d="-1" aria-label="One less child">−</button><output>0</output><button type="button" data-d="1" aria-label="One more child">+</button></span></div>
+        </div>
+      </fieldset>
+      <fieldset><legend>What for?</legend><div class="pills" id="reasons"><button type="button" class="pill" aria-pressed="true" data-r="Check-up">Check-up</button><button type="button" class="pill" aria-pressed="false" data-r="Cleaning">Cleaning</button><button type="button" class="pill" aria-pressed="false" data-r="Toothache">Toothache</button><button type="button" class="pill" aria-pressed="false" data-r="Kids">Kids</button><button type="button" class="pill" aria-pressed="false" data-r="Braces">Braces</button><button type="button" class="pill" aria-pressed="false" data-r="Whitening">Whitening</button><button type="button" class="pill" aria-pressed="false" data-r="Dentures">Dentures</button><button type="button" class="pill" aria-pressed="false" data-r="Family plan">Family plan</button></div></fieldset>
+      <fieldset><legend>When suits you?</legend><div class="days" id="days"></div>
+        <div class="pills tod" id="tod"><button type="button" class="pill" aria-pressed="false" data-t="Morning">Morning</button><button type="button" class="pill" aria-pressed="false" data-t="Afternoon">Afternoon</button><button type="button" class="pill" aria-pressed="true" data-t="Evening">Evening</button></div></fieldset>
+      <fieldset><legend>Your details</legend><div class="fields"><label>Name<input id="nm" autocomplete="name" placeholder="Your name"></label><label>Mobile<input id="ph" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile"></label></div></fieldset>
+      <p class="sumline"><svg class="ic " viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span id="sum">1 adult · Check-up · Today, evening</span></p>
+      <button class="btn btn-dk" type="submit">Request these slots <svg class="ic arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="fine">We confirm on WhatsApp within the hour, during clinic hours.</p>
+    </form>
+    <aside class="side">
+      <div class="info" data-up><h3>Sage Family Dental</h3>
+        <dl><div><dt>Address</dt><dd>12, 100 Feet Road, Indiranagar<br>Bengaluru 560038</dd></div><div><dt>Hours</dt><dd>Mon – Sat · 9 AM – 8 PM<br>Sunday · 10 AM – 2 PM</dd></div><div><dt>Phone</dt><dd><a href="tel:+910000000000">+91 00000 00000</a></dd></div></dl>
+        <a class="wa" href="https://wa.me/910000000000" target="_blank" rel="noopener"><svg class="ic " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.8 8.6c.3 2.9 2.9 5.6 5.9 6l1-1.4-1.9-1-1 .9a5 5 0 0 1-2.2-2.2l.9-1-1-1.9Z"/></svg>Chat on WhatsApp</a></div>
+      <div class="map" data-up><iframe title="Map to Sage Family Dental" src="https://maps.google.com/maps?q=100%20Feet%20Road%2C%20Indiranagar%2C%20Bengaluru&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#f7f2ea"/><path d="M13 12.5c-2.6 0-3.6 2.6-3 5.2.4 2.2 1.2 3.9 1.6 6.3.4 1.6 2.3 1.6 2.6 0l.8-3.4c.3-1 2.1-1 2.4 0l.8 3.4c.3 1.6 2.2 1.6 2.6 0 .4-2.4 1.2-4.1 1.6-6.3.6-2.6-.4-5.2-3-5.2-1.7 0-2.7 1-5 1s-3.3-1-5-1Z" fill="#2e4a3b" transform="translate(4 1)"/><path d="M27 9c-3 0-5 2-5 5 3 0 5-2 5-5Z" fill="#a9c1a6"/></svg><span><b>Sage</b><small>Family Dental</small></span></a>
+        <p class="about">A family dental practice in Indiranagar, Bengaluru. Gentle care for every age, since 2009.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="plans.html">Family plans</a></li><li><a href="contact.html">Visit us</a></li></ul></div>
+      <div><h4>Hours</h4><ul><li>Mon – Sat · 9 AM – 8 PM</li><li>Sunday · 10 AM – 2 PM</li><li>Kids’ slots after school, 4 – 7 PM</li></ul></div>
+      <div><h4>Find us</h4><ul><li>12, 100 Feet Road<br>Indiranagar, Bengaluru 560038</li><li><a href="tel:+910000000000">+91 00000 00000</a></li><li><a href="mailto:hello@sagefamilydental.in">hello@sagefamilydental.in</a></li></ul></div>
+    </div>
+  </div>
+  <div class="bigword" aria-hidden="true">Sage</div>
+  <div class="wrap legal"><span>© 2026 Sage Family Dental</span><span>Demo website template by <a href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20Sage%20family%20dental%20template.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Harsh Tripathi</a></span></div>
+</footer>
+<div class="mbar"><a class="btn btn-line" href="tel:+910000000000"><svg class="ic " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a><a class="btn btn-dk" href="contact.html">Book a visit <svg class="ic arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<a class="demo" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20Sage%20family%20dental%20template.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener"><span>Demo template</span> <i>Want this for your clinic?</i> <b>Harsh Tripathi →</b></a>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

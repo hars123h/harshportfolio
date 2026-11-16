@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dental website templates · Harsh Tripathi</title>
+<meta name="description" content="Eight live dental website templates, from 3D one-pagers to multi-page clinic sites. Pick one and Harsh Tripathi rebuilds it for your clinic in about a week.">
+<meta name="theme-color" content="#0b2f20">
+<meta property="og:title" content="Dental website templates · Harsh Tripathi">
+<meta property="og:description" content="Eight live templates for every kind of dental clinic. Pick one, and it’s rebuilt for your clinic in about a week.">
+<meta property="og:image" content="assets/enamel-d.jpg">
+<link rel="icon" href="../images/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b2f20;--bg-2:#11402c;--bg-3:#1a5a40;--mint:#cfeee0;--paper:#f6f3ec;--ink:#0d0f0e;--sun:#ffcf5a;--muted:#a9c4b6;
+  --display:'Bricolage Grotesque','Arial Narrow',system-ui,sans-serif;--body:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace;
+  --pad:clamp(16px,4.4vw,64px);--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:#fff;font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:.98}
+.wrap{width:min(1280px,100%);margin:0 auto;padding:0 var(--pad)}
+.ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:10px 20px;border:0;border-radius:6px;font:600 15.5px var(--body);text-decoration:none;text-align:center;cursor:pointer;transition:transform .3s var(--ease),background .25s,color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover .ic{transform:translateX(3px)}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(13,15,14,.25)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+
+/* header */
+.top-bar{position:sticky;top:0;z-index:40;padding:12px var(--pad)}
+.bar-in{display:flex;align-items:center;gap:16px;width:min(1240px,100%);margin:0 auto;height:58px;padding:0 8px 0 18px;border-radius:16px;background:rgba(9,36,25,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(207,238,224,.14)}
+.logo{display:block;line-height:0;margin-right:auto;--sw:58}
+.logo svg{height:34px;width:auto}
+.here{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+.bar-in .btn{min-height:42px;padding:6px 16px;font-size:14.5px}
+
+/* hero */
+.hero{padding:clamp(50px,8vw,100px) 0 clamp(36px,5vw,60px)}
+.hero h1{margin-top:18px;font-size:clamp(46px,8vw,124px)}
+.hero h1 span{color:var(--sun)}
+.hero .lede{max-width:56ch;margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:rgba(255,255,255,.82)}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.stats span{padding:8px 14px;border-radius:30px;background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--bg-3);font-family:var(--mono);font-size:13px;color:var(--mint)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border:0;border-radius:6px;background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--bg-3);font:600 15px var(--body);color:#fff;cursor:pointer;transition:background .2s,color .2s}
+.filters button small{font-family:var(--mono);font-size:12px;opacity:.6}
+.filters button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:none}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.card{display:flex;flex-direction:column;border-radius:8px;background:var(--paper);color:var(--ink);overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.18),0 18px 40px rgba(0,0,0,.2)}
+.card.hide{display:none}
+.shots{position:relative;display:block;padding:22px 22px 0;background:linear-gradient(160deg,color-mix(in srgb,var(--acc) 26%,#ede9e0),#e7e3da);text-decoration:none;overflow:hidden}
+.browser{display:block;border-radius:10px 10px 0 0;overflow:hidden;background:#fff;box-shadow:0 20px 40px rgba(0,0,0,.18);transform-origin:50% 100%;transition:transform .7s var(--ease)}
+.bar{display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;background:#ecebe6}
+.bar i{width:8px;height:8px;border-radius:50%;background:#cfccc4}
+.bar b{margin:0 auto;padding:2px 10px;border-radius:5px;background:#fff;font:500 11.5px var(--mono);color:#6a6f6c}
+.browser img{width:100%;aspect-ratio:1000/626;object-fit:cover;object-position:50% 0}
+.phone{position:absolute;right:20px;bottom:-34px;width:23%;border-radius:18px;padding:5px;background:#111;box-shadow:0 20px 40px rgba(0,0,0,.3);transition:transform .7s var(--ease)}
+.phone img{width:100%;border-radius:13px;aspect-ratio:260/562;object-fit:cover;object-position:50% 0}
+.shots:hover .browser{transform:scale(1.02)}
+.shots:hover .phone{transform:translateY(-16px) rotate(-3deg)}
+.info{display:flex;flex-direction:column;gap:10px;padding:22px 24px 24px}
+.info .top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12.5px;color:#5d6661}
+.info .no{display:inline-flex;align-items:center;gap:8px}
+.info .no::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.info .pg{padding:3px 10px;border-radius:20px;background:#e7e3da}
+.info h2{font-size:clamp(30px,3vw,42px)}
+.for{font-size:15.5px;font-weight:600}
+.for span{font-weight:400;color:#5d6661}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 0;padding:0;list-style:none}
+.tags li{padding:5px 10px;border-radius:5px;background:#e7e3da;font-family:var(--mono);font-size:12px;color:#3c4440}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.acts .btn{flex:1 1 auto}
+
+/* how it works */
+.sec{padding:clamp(70px,9vw,120px) 0}
+.sec h2{margin-top:14px;font-size:clamp(36px,5vw,72px)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+.step{padding:28px;border-radius:8px;background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--bg-3)}
+.step b{display:block;font-family:var(--display);font-size:56px;line-height:1;color:var(--sun)}
+.step h3{margin-top:14px;font-size:26px;letter-spacing:-.02em}
+.step p{margin-top:8px;color:rgba(255,255,255,.78)}
+.incl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin:36px 0 0;padding:0;list-style:none}
+.incl li{display:flex;gap:12px;padding:16px 0;border-bottom:1.5px dotted rgba(207,238,224,.3)}
+.incl li .ic{color:var(--sun);margin-top:4px}
+
+/* cta */
+.cta{margin-top:clamp(20px,4vw,40px);padding:clamp(34px,5vw,64px) clamp(22px,5vw,64px);border-radius:8px;background:var(--paper);color:var(--ink)}
+.cta h2{font-size:clamp(34px,4.6vw,66px);margin:0}
+.cta p{margin-top:14px;max-width:52ch;color:#3c4440}
+.cta .acts{margin-top:24px}
+.cta .acts .btn{flex:0 1 auto}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;padding:22px 0 30px;border-top:1px solid rgba(207,238,224,.2);font-size:14.5px;color:var(--muted)}
+.foot a{text-decoration:none;border-bottom:1px solid rgba(207,238,224,.3)}
+
+.anim [data-up]:not(.shown){opacity:0;transform:translateY(30px)}
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .here{display:none}
+  .logo svg{height:30px}
+  .bar-in{height:54px}
+  .hero h1{font-size:clamp(42px,12.6vw,60px)}
+  .shots{padding:14px 14px 0}
+  .phone{right:12px;bottom:-26px;width:26%;border-radius:14px;padding:4px}
+  .phone img{border-radius:10px}
+  .info{padding:18px 18px 20px}
+  .acts .btn{flex:1 1 100%}
+  .incl{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+<script>(function(d){if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)d.classList.add('anim')})(document.documentElement)</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="sig" viewBox="190 180 2690 880"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><g style="stroke:var(--sm,#f6f3ec);stroke-width:var(--sw,24)"><path d="M380 528 C372 531 343 542 332 546 C320 551 319 552 312 557 C306 562 299 568 293 574 C287 580 284 584 277 595 C271 606 263 624 256 642 C248 660 240 684 235 701 C230 719 228 732 226 746 C225 760 225 776 226 788 C226 801 228 812 230 823 C232 834 236 846 239 855 C243 864 246 870 251 878 C256 886 262 893 270 902 C278 910 288 919 299 927 C310 935 322 943 334 950 C345 957 358 962 370 967 C383 972 395 976 409 979 C424 983 440 986 458 989 C475 991 496 993 515 994 C534 995 553 996 570 995 C588 995 606 993 621 992 C635 990 646 988 658 985 C670 983 681 980 694 975 C707 971 721 964 735 958 C748 952 760 945 774 936 C787 928 803 918 814 909 C826 900 834 893 843 884 C853 874 864 863 872 852 C880 842 887 832 893 821 C899 810 904 800 908 787 C913 774 918 760 921 744 C925 729 927 709 929 696 C931 684 931 675 931 670 C931 664 930 664 930 662"/><path d="M324 504 C326 502 333 496 336 493 C340 490 339 490 346 488 C352 486 347 484 374 482 C401 480 476 479 506 477 C538 476 551 473 560 472"/><path d="M732 474 C731 477 728 488 728 497 C727 506 726 514 727 528 C727 541 729 564 730 578 C732 591 734 598 736 607 C739 616 742 625 744 632 C747 639 749 643 752 648 C755 653 758 658 762 662 C766 665 770 668 776 670 C782 672 775 675 797 673 C819 672 884 664 906 662 C928 660 926 662 930 662"/><path d="M732 474 C735 471 742 465 750 460 C758 455 771 448 779 444 C787 440 793 438 799 436 C805 433 811 432 816 431 C822 430 828 430 834 431 C840 431 846 433 852 434 C858 436 864 439 868 442 C873 444 876 447 879 450 C883 454 886 457 888 461 C891 465 892 465 895 474 C898 482 902 493 907 513 C911 532 918 566 922 591 C925 616 928 650 930 662"/><path d="M930 662 C930 663 930 664 934 664 C938 663 939 662 953 660 C966 659 1003 658 1017 656 C1030 655 1030 653 1033 653"/><path d="M1033 653 C1034 653 1035 655 1040 657 C1045 658 1050 660 1061 662 C1072 664 1094 667 1106 668 C1119 669 1125 670 1136 669 C1148 668 1160 667 1178 663 C1195 658 1229 646 1239 643"/><path d="M1033 653 C1033 649 1035 640 1037 633 C1039 626 1041 620 1044 613 C1047 607 1052 601 1056 595 C1061 590 1067 585 1073 581 C1079 576 1084 573 1092 570 C1100 567 1109 563 1120 560 C1131 558 1145 555 1157 553 C1169 551 1182 549 1190 549 C1199 548 1203 549 1208 550 C1214 551 1218 552 1222 554 C1225 556 1229 558 1232 562 C1235 565 1238 568 1240 572 C1242 577 1244 583 1245 589 C1246 596 1246 606 1246 611 C1246 617 1246 617 1245 622 C1244 627 1240 640 1239 643"/><path d="M1239 643 C1244 648 1259 666 1268 674 C1277 682 1283 687 1292 692 C1300 696 1307 699 1318 703 C1330 707 1352 713 1359 715"/><path d="M542 541 L563 730"/><path d="M1602 542 C1600 544 1609 538 1593 551 C1577 564 1524 604 1507 619 C1490 633 1494 632 1490 637 C1487 642 1487 644 1486 649 C1486 653 1486 659 1488 665 C1489 670 1491 675 1494 681 C1498 687 1494 682 1506 700 C1520 718 1557 768 1572 788 C1588 809 1589 810 1599 821 C1610 833 1625 848 1635 857 C1646 866 1657 871 1664 875 C1671 879 1673 879 1678 880 C1682 881 1685 882 1692 882 C1699 882 1711 882 1721 880 C1731 878 1737 875 1752 869 C1767 862 1800 846 1810 841"/><path d="M2044 601 C2048 601 2054 602 2058 605 C2063 608 2065 608 2073 619 C2081 630 2097 658 2106 672 C2115 687 2120 697 2125 708 C2130 720 2134 730 2137 739 C2140 749 2142 756 2143 765 C2145 773 2145 783 2145 791 C2145 799 2144 806 2142 813 C2140 819 2138 824 2135 829 C2131 834 2127 840 2121 845 C2115 850 2108 855 2100 859 C2092 864 2082 868 2073 872 C2064 875 2054 878 2044 881 C2035 883 2024 885 2015 886 C2006 887 1997 887 1988 886 C1980 886 1970 884 1963 882 C1955 880 1948 877 1942 874 C1936 871 1932 868 1927 864 C1922 861 1919 857 1914 852 C1910 847 1907 841 1902 834 C1896 826 1888 813 1884 806 C1879 798 1878 795 1876 789 C1874 783 1873 778 1873 772 C1873 766 1875 757 1876 751 C1878 744 1880 740 1883 734 C1886 728 1885 728 1896 715 C1907 703 1929 677 1949 659 C1969 642 2002 619 2015 610 C2029 600 2026 604 2031 602 C2036 601 2039 600 2044 601"/><path d="M1989 327 C1982 331 1956 344 1946 350 C1937 355 1936 357 1932 361 C1928 364 1925 368 1922 372 C1920 376 1917 379 1915 384 C1913 389 1911 396 1909 401 C1908 407 1908 410 1908 416 C1908 421 1909 429 1910 434 C1911 440 1912 443 1914 448 C1916 453 1916 457 1921 465 C1926 474 1932 484 1945 499 C1958 514 1985 541 1998 556 C2011 572 2017 584 2025 590 C2032 597 2040 595 2042 596"/><path d="M2042 596 C2045 595 2054 595 2059 592 C2064 590 2068 585 2073 581 C2079 577 2077 578 2092 570 C2106 562 2139 544 2161 533 C2182 523 2203 514 2221 506 C2240 498 2261 491 2271 485 C2282 480 2282 476 2284 474"/><path d="M2286 461 C2282 460 2280 458 2278 456 C2275 452 2275 455 2270 442 C2266 430 2256 397 2252 379 C2249 361 2247 348 2247 334 C2247 320 2249 306 2251 296 C2252 287 2254 284 2256 279 C2259 273 2262 267 2264 262 C2267 258 2270 254 2273 251 C2276 247 2280 244 2284 241 C2288 238 2292 236 2297 234 C2302 232 2308 230 2314 228 C2319 227 2323 227 2328 227 C2333 227 2338 227 2342 228 C2346 229 2348 230 2351 232 C2355 234 2359 236 2362 240 C2365 243 2368 246 2371 250 C2374 255 2373 252 2379 267 C2384 282 2398 324 2403 340 C2407 356 2405 356 2405 362 C2405 369 2404 375 2403 380 C2402 386 2400 390 2398 394 C2396 398 2396 401 2391 406 C2386 411 2377 419 2369 425 C2361 431 2352 436 2343 440 C2335 445 2324 449 2317 453 C2310 456 2304 458 2298 460 C2293 461 2289 461 2286 461"/><path d="M2284 474 C2286 476 2289 479 2294 488 C2298 496 2305 516 2311 527 C2316 539 2321 547 2327 557 C2333 566 2340 577 2346 584 C2352 592 2356 596 2361 600 C2366 604 2371 606 2376 608 C2382 610 2387 610 2393 610 C2398 610 2400 610 2410 606 C2419 602 2439 590 2448 585 C2458 581 2459 581 2465 580 C2472 579 2480 578 2486 579 C2493 580 2498 582 2503 585 C2509 588 2515 592 2520 598 C2525 604 2530 611 2535 619 C2539 627 2541 631 2547 646 C2553 661 2564 695 2569 708 C2574 722 2575 720 2578 725 C2580 729 2583 733 2586 736 C2590 739 2593 742 2597 745 C2602 748 2606 751 2613 753 C2620 755 2629 758 2637 759 C2645 761 2657 762 2661 762"/></g><g style="stroke:var(--sa,#ffcf5a);stroke-width:var(--sw,24)"><path d="M1407 417 L1724 368"/><path d="M1452 504 L1640 456"/><path d="M2628 962 L2790 950"/><path d="M2694 1024 L2856 1012"/></g></g></symbol></svg>
+<header class="top-bar">
+  <div class="bar-in">
+    <a class="logo" href="../index.html" aria-label="Harsh Tripathi, portfolio"><svg viewBox="0 0 2690 880" aria-hidden="true"><use href="#sig"/></svg></a>
+    <span class="here">Dental templates</span>
+    <a class="btn btn-sun" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20website%20templates.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">WhatsApp me</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="meta" data-up>Dental website templates · by Harsh Tripathi</p>
+    <h1 data-up>Dental websites, <span>ready to make yours.</span></h1>
+    <p class="lede" data-up>Eight live templates for every kind of clinic. Open any of them on your phone, pick the one that feels like you, and I’ll rebuild it with your clinic’s name, photos, prices and city, live in about a week.</p>
+    <div class="stats" data-up><span>8 live templates</span><span>3 with 3D animation</span><span>3 multi-page sites</span><span>Built for phones first</span></div>
+  </section>
+
+  <div class="filters" role="group" aria-label="Filter templates" data-up>
+    <button type="button" data-f="all" aria-pressed="true">All <small></small></button>
+    <button type="button" data-f="3d" aria-pressed="false">3D <small></small></button>
+    <button type="button" data-f="multi" aria-pressed="false">Multi-page <small></small></button>
+    <button type="button" data-f="one" aria-pressed="false">One page <small></small></button>
+  </div>
+  <section class="grid" id="grid" aria-label="Templates">
+    <article class="card" data-f="3d one" style="--acc:#1f5c58" data-up>
+      <a class="shots" href="enamel/index.html" target="_blank" rel="noopener" aria-label="Open the Enamel live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>enamel.demo</b></span>
+          <picture><source srcset="assets/enamel-d.avif" type="image/avif"><img src="assets/enamel-d.jpg" alt="Enamel template on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/enamel-m.avif" type="image/avif"><img src="assets/enamel-m.jpg" alt="Enamel template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">01</span><span class="pg">1 page</span></div>
+        <h2>Enamel</h2>
+        <p class="for">For Premium clinics · <span>demo: Ivora Dental Studio</span></p>
+        <ul class="tags"><li>3D tooth</li><li>Shade picker</li><li>Scroll story</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="enamel/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Enamel%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="multi" style="--acc:#14a06a" data-up>
+      <a class="shots" href="classic/index.html" target="_blank" rel="noopener" aria-label="Open the Classic live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>classic.demo</b></span>
+          <picture><source srcset="assets/classic-d.avif" type="image/avif"><img src="assets/classic-d.jpg" alt="Classic template on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/classic-m.avif" type="image/avif"><img src="assets/classic-m.jpg" alt="Classic template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">02</span><span class="pg">5 pages</span></div>
+        <h2>Classic</h2>
+        <p class="for">For Multi-doctor clinics · <span>demo: Muskaan Dental Care</span></p>
+        <ul class="tags"><li>Online booking</li><li>Doctor profiles</li><li>Treatment filter</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="classic/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Classic%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="3d one" style="--acc:#ff5b1f" data-up>
+      <a class="shots" href="implant/index.html" target="_blank" rel="noopener" aria-label="Open the Implant Pro live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>implant.demo</b></span>
+          <picture><source srcset="assets/implant-d.avif" type="image/avif"><img src="assets/implant-d.jpg" alt="Implant Pro template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/implant-m.avif" type="image/avif"><img src="assets/implant-m.jpg" alt="Implant Pro template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">03</span><span class="pg">1 page</span></div>
+        <h2>Implant Pro</h2>
+        <p class="for">For Implant specialists · <span>demo: AXIS Implant Centre</span></p>
+        <ul class="tags"><li>3D implant</li><li>Live readouts</li><li>Dark theme</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="implant/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Implant%20Pro%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="multi" style="--acc:#7c9a7e" data-up>
+      <a class="shots" href="calm/index.html" target="_blank" rel="noopener" aria-label="Open the Calm Family live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>calm.demo</b></span>
+          <picture><source srcset="assets/calm-d.avif" type="image/avif"><img src="assets/calm-d.jpg" alt="Calm Family template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/calm-m.avif" type="image/avif"><img src="assets/calm-m.jpg" alt="Calm Family template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">04</span><span class="pg">4 pages</span></div>
+        <h2>Calm Family</h2>
+        <p class="for">For Family clinics · <span>demo: Sage Family Dental</span></p>
+        <ul class="tags"><li>Family booking</li><li>Membership plans</li><li>Kids to seniors</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="calm/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Calm%20Family%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="3d one" style="--acc:#2546ff" data-up>
+      <a class="shots" href="splash/index.html" target="_blank" rel="noopener" aria-label="Open the Splash live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>splash.demo</b></span>
+          <picture><source srcset="assets/splash-d.avif" type="image/avif"><img src="assets/splash-d.jpg" alt="Splash template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/splash-m.avif" type="image/avif"><img src="assets/splash-m.jpg" alt="Splash template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">05</span><span class="pg">1 page</span></div>
+        <h2>Splash</h2>
+        <p class="for">For Young, modern clinics · <span>demo: GLEAM Dental Co.</span></p>
+        <ul class="tags"><li>3D tooth</li><li>Patient stories</li><li>Chat booking</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="splash/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Splash%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="one" style="--acc:#5a1f2b" data-up>
+      <a class="shots" href="smile/index.html" target="_blank" rel="noopener" aria-label="Open the Smile Gallery live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>smile.demo</b></span>
+          <picture><source srcset="assets/smile-d.avif" type="image/avif"><img src="assets/smile-d.jpg" alt="Smile Gallery template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/smile-m.avif" type="image/avif"><img src="assets/smile-m.jpg" alt="Smile Gallery template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">06</span><span class="pg">1 page</span></div>
+        <h2>Smile Gallery</h2>
+        <p class="for">For Cosmetic dentists · <span>demo: Atelier Smile</span></p>
+        <ul class="tags"><li>Before / after</li><li>Cost estimator</li><li>Selfie upload</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="smile/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Smile%20Gallery%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="multi" style="--acc:#c6a768" data-up>
+      <a class="shots" href="signature/index.html" target="_blank" rel="noopener" aria-label="Open the Dr. Signature live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>signature.demo</b></span>
+          <picture><source srcset="assets/signature-d.avif" type="image/avif"><img src="assets/signature-d.jpg" alt="Dr. Signature template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/signature-m.avif" type="image/avif"><img src="assets/signature-m.jpg" alt="Dr. Signature template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">07</span><span class="pg">3 pages</span></div>
+        <h2>Dr. Signature</h2>
+        <p class="for">For A doctor’s personal brand · <span>demo: Dr. Kunal Bhatia</span></p>
+        <ul class="tags"><li>Animated signature</li><li>Calendar booking</li><li>Flip cards</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="signature/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Dr.%20Signature%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article><article class="card" data-f="one" style="--acc:#3fbfcf" data-up>
+      <a class="shots" href="aligners/index.html" target="_blank" rel="noopener" aria-label="Open the Aligner Studio live demo in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>aligners.demo</b></span>
+          <picture><source srcset="assets/aligners-d.avif" type="image/avif"><img src="assets/aligners-d.jpg" alt="Aligner Studio template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/aligners-m.avif" type="image/avif"><img src="assets/aligners-m.jpg" alt="Aligner Studio template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">08</span><span class="pg">1 page</span></div>
+        <h2>Aligner Studio</h2>
+        <p class="for">For Aligner &amp; braces clinics · <span>demo: Linea Aligner Studio</span></p>
+        <ul class="tags"><li>Teeth straighten on scroll</li><li>Fit quiz</li><li>Multi-location</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="aligners/index.html" target="_blank" rel="noopener">Open live demo <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20liked%20the%20Aligner%20Studio%20dental%20template.%20Can%20you%20make%20it%20for%20my%20clinic%3F" target="_blank" rel="noopener">Get this for my clinic</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="sec">
+    <p class="meta" data-up>How it works</p>
+    <h2 data-up>From template to your clinic’s site.</h2>
+    <div class="steps">
+      <div class="step" data-up><b>1</b><h3>Pick a template</h3><p>Open the demos on your phone and choose the one closest to your clinic.</p></div>
+      <div class="step" data-up><b>2</b><h3>Send your details</h3><p>Logo, clinic photos, doctors, treatments and prices. A WhatsApp message is enough.</p></div>
+      <div class="step" data-up><b>3</b><h3>Go live</h3><p>You get a working link to review in a few days, and your site goes live on your own domain.</p></div>
+    </div>
+    <ul class="incl">
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Built for phones first, fast on 4G</li>
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Bookings straight to your WhatsApp</li>
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Your photos, doctors, treatments and prices</li>
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Google Maps, call button and opening hours</li>
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Set up for Google search from day one</li>
+      <li data-up><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Your own domain, and the code is yours</li>
+    </ul>
+  </section>
+
+  <section class="cta" data-up>
+    <h2>Seen one you like?</h2>
+    <p>Tell me which template and your clinic’s name. I’ll send a first version with your details before you pay anything.</p>
+    <div class="acts"><a class="btn btn-ink" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20website%20templates.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">Message me on WhatsApp <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="../index.html#work">See my other work</a></div>
+  </section>
+
+  <footer class="foot"><span>© 2026 Harsh Tripathi</span><span>Clinic names, doctors and numbers in the demos are made up for illustration.</span><a href="../index.html">Back to portfolio</a></footer>
+</main>
+
+<script>
+(() => {
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const cards = $$('.card'), btns = $$('.filters button');
+  btns.forEach(b => { const f = b.dataset.f; b.querySelector('small').textContent = f === 'all' ? cards.length : cards.filter(c => c.dataset.f.split(' ').includes(f)).length; });
+  btns.forEach(b => b.addEventListener('click', () => {
+    const f = b.dataset.f; btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    cards.forEach(c => c.classList.toggle('hide', !(f === 'all' || c.dataset.f.split(' ').includes(f))));
+  }));
+  if (!document.documentElement.classList.contains('anim')) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; const el = e.target; io.unobserve(el);
+    el.animate([{ opacity: 0, transform: 'translateY(30px)' }, { opacity: 1, transform: 'none' }], { duration: 800, easing: 'cubic-bezier(.2,.8,.2,1)' }); el.classList.add('shown'); }), { rootMargin: '0px 0px -8% 0px' });
+  $$('[data-up]').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
