@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dental website templates · Harsh Tripathi</title>
-<meta name="description" content="Eight live dental website templates, from 3D one-pagers to multi-page clinic sites. Pick one and Harsh Tripathi rebuilds it for your clinic in about a week.">
+<title>Dental websites · Harsh Tripathi</title>
+<meta name="description" content="Six websites designed for real dental clinics in Delhi NCR, and eight live templates. Harsh Tripathi builds yours in about a week.">
 <meta name="theme-color" content="#0b2f20">
-<meta property="og:title" content="Dental website templates · Harsh Tripathi">
-<meta property="og:description" content="Eight live templates for every kind of dental clinic. Pick one, and it’s rebuilt for your clinic in about a week.">
+<meta property="og:title" content="Dental websites · Harsh Tripathi">
+<meta property="og:description" content="Six sites designed for real dental clinics in Delhi NCR, plus eight live templates. Yours can be live in about a week.">
 <link rel="canonical" href="https://tripathiharsh.vercel.app/dentists/">
 <meta property="og:url" content="https://tripathiharsh.vercel.app/dentists/">
 <meta property="og:image" content="https://tripathiharsh.vercel.app/dentists/assets/enamel-d.jpg">
@@ -76,10 +76,10 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
 .shots:hover .browser{transform:scale(1.02)}
 .shots:hover .phone{transform:translateY(-16px) rotate(-3deg)}
 .info{display:flex;flex-direction:column;gap:10px;padding:22px 24px 24px}
-.info .top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12.5px;color:#5d6661}
+.info .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;font-family:var(--mono);font-size:12.5px;color:#5d6661}
 .info .no{display:inline-flex;align-items:center;gap:8px}
 .info .no::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
-.info .pg{padding:3px 10px;border-radius:20px;background:#e7e3da}
+.info .pg{margin-left:auto;padding:3px 10px;border-radius:20px;background:#e7e3da}
 .info h2{font-size:clamp(30px,3vw,42px)}
 .for{font-size:15.5px;font-weight:600}
 .for span{font-weight:400;color:#5d6661}
@@ -87,6 +87,14 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
 .tags li{padding:5px 10px;border-radius:5px;background:#e7e3da;font-family:var(--mono);font-size:12px;color:#3c4440}
 .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
 .acts .btn{flex:1 1 auto}
+
+/* section heads */
+.blk-head{display:grid;gap:14px;max-width:64ch;margin-bottom:30px}
+.blk-head h2{font-size:clamp(36px,5vw,72px)}
+.blk-head h2 span{color:var(--sun)}
+.blk-head p{color:rgba(255,255,255,.82)}
+.blk-head .note{font-size:14.5px;color:var(--muted)}
+.real{padding-bottom:clamp(64px,8vw,110px)}
 
 /* how it works */
 .sec{padding:clamp(70px,9vw,120px) 0}
@@ -135,19 +143,114 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
 <header class="top-bar">
   <div class="bar-in">
     <a class="logo" href="../index.html" aria-label="Harsh Tripathi, portfolio"><svg viewBox="0 0 2690 880" aria-hidden="true"><use href="#sig"/></svg></a>
-    <span class="here">Dental templates</span>
-    <a class="btn btn-sun" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20website%20templates.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">WhatsApp me</a>
+    <span class="here">Dental websites</span>
+    <a class="btn btn-sun" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20websites.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">WhatsApp me</a>
   </div>
 </header>
 
 <main class="wrap">
   <section class="hero">
-    <p class="meta" data-up>Dental website templates · by Harsh Tripathi</p>
+    <p class="meta" data-up>Dental websites · by Harsh Tripathi</p>
     <h1 data-up>Dental websites, <span>ready to make yours.</span></h1>
-    <p class="lede" data-up>Eight live templates for every kind of clinic. Open any of them on your phone, pick the one that feels like you, and I’ll rebuild it with your clinic’s name, photos, prices and city, live in about a week.</p>
-    <div class="stats" data-up><span>8 live templates</span><span>3 with 3D animation</span><span>3 multi-page sites</span><span>Built for phones first</span></div>
+    <p class="lede" data-up>Six sites I designed for real clinics in Delhi NCR, plus eight templates to start from. Open them on your phone, pick what feels like you, and I’ll build yours with your clinic’s name, photos, prices and city, live in about a week.</p>
+    <div class="stats" data-up><span>6 real-clinic sites</span><span>8 live templates</span><span>3 with 3D animation</span><span>Built for phones first</span></div>
   </section>
 
+  <section class="real" aria-labelledby="real-h">
+    <div class="blk-head">
+      <p class="meta" data-up>Made for real clinics</p>
+      <h2 id="real-h" data-up>Six clinics, <span>six different sites.</span></h2>
+      <p data-up>Each one is designed around that clinic’s own doctors, treatments and story. None of them is a recoloured template.</p>
+      <p class="note" data-up>These are previews I made from each clinic’s public information. They aren’t live on the clinics’ own domains yet.</p>
+    </div>
+    <div class="grid">
+    <article class="card" style="--acc:#ec8a42" data-up>
+      <a class="shots" href="../clients/dr-pathak-dental-care/index.html" target="_blank" rel="noopener" aria-label="Open the Dr. Pathak Dental Care site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>dr-pathak · preview</b></span>
+          <picture><source srcset="assets/rc-pathak-d.avif" type="image/avif"><img src="assets/rc-pathak-d.jpg" alt="Dr. Pathak Dental Care site on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-pathak-m.avif" type="image/avif"><img src="assets/rc-pathak-m.jpg" alt="Dr. Pathak Dental Care site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Alpha 2, Greater Noida</span><span class="pg">10 pages</span></div>
+        <h2>Dr. Pathak Dental Care</h2>
+        <p class="for">MDS prosthodontist · <span>Patients tap their missing teeth to see implant, bridge or denture options, then send the list to the doctor on WhatsApp.</span></p>
+        <ul class="tags"><li>Tooth-chart planner</li><li>Crown materials</li><li>Hindi tagline</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/dr-pathak-dental-care/index.html" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20Dr.%20Pathak%20Dental%20Care.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article><article class="card" style="--acc:#8bd450" data-up>
+      <a class="shots" href="../clients/noida-dental-care/index.htm" target="_blank" rel="noopener" aria-label="Open the Noida Dental Care site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>noida-dental-care · preview</b></span>
+          <picture><source srcset="assets/rc-ndcare-d.avif" type="image/avif"><img src="assets/rc-ndcare-d.jpg" alt="Noida Dental Care site on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-ndcare-m.avif" type="image/avif"><img src="assets/rc-ndcare-m.jpg" alt="Noida Dental Care site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Sector 29, Noida</span><span class="pg">16 pages</span></div>
+        <h2>Noida Dental Care</h2>
+        <p class="for">Microscope root canal specialist · <span>A 16× lens slides over the tooth, and a root canal is explained step by step as you scroll.</span></p>
+        <ul class="tags"><li>Microscope lens</li><li>Root canal story</li><li>Price explorer</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/noida-dental-care/index.htm" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20Noida%20Dental%20Care.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article><article class="card" style="--acc:#e63b2e" data-up>
+      <a class="shots" href="../clients/noida-dental-centre/index.html" target="_blank" rel="noopener" aria-label="Open the Noida Dental Centre site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>noida-dental-centre · preview</b></span>
+          <picture><source srcset="assets/rc-ndcentre-d.avif" type="image/avif"><img src="assets/rc-ndcentre-d.jpg" alt="Noida Dental Centre site on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-ndcentre-m.avif" type="image/avif"><img src="assets/rc-ndcentre-m.jpg" alt="Noida Dental Centre site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Sector 61, Noida</span><span class="pg">22 pages</span></div>
+        <h2>Noida Dental Centre</h2>
+        <p class="for">Four specialists, one family · <span>The four doctors form one smile dial, and an age slider goes from milk teeth to implants.</span></p>
+        <ul class="tags"><li>Smile dial</li><li>Age slider</li><li>Gum-disease stages</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/noida-dental-centre/index.html" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20Noida%20Dental%20Centre.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article><article class="card" style="--acc:#1a9be8" data-up>
+      <a class="shots" href="../clients/star-dental-care/index.html" target="_blank" rel="noopener" aria-label="Open the Star Dental Care site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>star-dental-care · preview</b></span>
+          <picture><source srcset="assets/rc-star-d.avif" type="image/avif"><img src="assets/rc-star-d.jpg" alt="Star Dental Care site on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-star-m.avif" type="image/avif"><img src="assets/rc-star-m.jpg" alt="Star Dental Care site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Noida &amp; Meerut</span><span class="pg">1 page</span></div>
+        <h2>Star Dental Care</h2>
+        <p class="for">Implant clinic, three branches · <span>A before/after slider opens the page, and booking goes to the WhatsApp of the branch you pick.</span></p>
+        <ul class="tags"><li>Before / after slider</li><li>Three clinics</li><li>Live open status</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/star-dental-care/index.html" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20Star%20Dental%20Care.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article><article class="card" style="--acc:#3a3fd6" data-up>
+      <a class="shots" href="../clients/dr-gaurs-dental-clinic/index.html" target="_blank" rel="noopener" aria-label="Open the Dr. Gaur’s Dental Clinic site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>dr-gaurs · preview</b></span>
+          <picture><source srcset="assets/rc-gaurs-d.avif" type="image/avif"><img src="assets/rc-gaurs-d.jpg" alt="Dr. Gaur’s Dental Clinic site on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-gaurs-m.avif" type="image/avif"><img src="assets/rc-gaurs-m.jpg" alt="Dr. Gaur’s Dental Clinic site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Sector 105, Gurugram</span><span class="pg">17 pages</span></div>
+        <h2>Dr. Gaur’s Dental Clinic</h2>
+        <p class="for">NABH clinic, five MDS specialists · <span>Every specialist gets a profile, the header shows whether the clinic is open, and booking skips the Thursday closure.</span></p>
+        <ul class="tags"><li>Specialist profiles</li><li>Live open status</li><li>Google reviews</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/dr-gaurs-dental-clinic/index.html" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20Dr.%20Gaur%27s%20Dental%20Clinic.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article><article class="card" style="--acc:#2f55d4" data-up>
+      <a class="shots" href="../clients/delhi-dental-clinic/index.html" target="_blank" rel="noopener" aria-label="Open The Delhi Dental Clinic site in a new tab">
+        <span class="browser"><span class="bar"><i></i><i></i><i></i><b>delhi-dental-clinic · preview</b></span>
+          <picture><source srcset="assets/rc-delhi-d.avif" type="image/avif"><img src="assets/rc-delhi-d.jpg" alt="The Delhi Dental Clinic site on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
+        <span class="phone"><picture><source srcset="assets/rc-delhi-m.avif" type="image/avif"><img src="assets/rc-delhi-m.jpg" alt="The Delhi Dental Clinic site on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
+      </a>
+      <div class="info">
+        <div class="top"><span class="no">Jangpura Extension, New Delhi</span><span class="pg">19 pages</span></div>
+        <h2>The Delhi Dental Clinic</h2>
+        <p class="for">Family practice, 30+ years · <span>Patient video stories, a clinic tour, and a page for patients travelling from abroad.</span></p>
+        <ul class="tags"><li>Patient videos</li><li>Clinic tour</li><li>International patients</li></ul>
+        <div class="acts"><a class="btn btn-ink" href="../clients/delhi-dental-clinic/index.html" target="_blank" rel="noopener">Open the site <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-line" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20the%20website%20you%20made%20for%20The%20Delhi%20Dental%20Clinic.%20Can%20you%20make%20one%20for%20my%20clinic%3F" target="_blank" rel="noopener">Want one like this?</a></div>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <div class="blk-head">
+    <p class="meta" data-up>Templates</p>
+    <h2 data-up>Or start from <span>a template.</span></h2>
+    <p data-up>Eight ready designs, shown with made-up demo clinics. Pick one and I’ll rebuild it with your details.</p>
+  </div>
   <div class="filters" role="group" aria-label="Filter templates" data-up>
     <button type="button" data-f="all" aria-pressed="true">All <small></small></button>
     <button type="button" data-f="3d" aria-pressed="false">3D <small></small></button>
@@ -158,7 +261,7 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
     <article class="card" data-f="3d one" style="--acc:#1f5c58" data-up>
       <a class="shots" href="enamel/index.html" target="_blank" rel="noopener" aria-label="Open the Enamel live demo in a new tab">
         <span class="browser"><span class="bar"><i></i><i></i><i></i><b>enamel.demo</b></span>
-          <picture><source srcset="assets/enamel-d.avif" type="image/avif"><img src="assets/enamel-d.jpg" alt="Enamel template on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+          <picture><source srcset="assets/enamel-d.avif" type="image/avif"><img src="assets/enamel-d.jpg" alt="Enamel template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
         <span class="phone"><picture><source srcset="assets/enamel-m.avif" type="image/avif"><img src="assets/enamel-m.jpg" alt="Enamel template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
       </a>
       <div class="info">
@@ -171,7 +274,7 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
     </article><article class="card" data-f="multi" style="--acc:#14a06a" data-up>
       <a class="shots" href="classic/index.html" target="_blank" rel="noopener" aria-label="Open the Classic live demo in a new tab">
         <span class="browser"><span class="bar"><i></i><i></i><i></i><b>classic.demo</b></span>
-          <picture><source srcset="assets/classic-d.avif" type="image/avif"><img src="assets/classic-d.jpg" alt="Classic template on a laptop" width="1000" height="626" loading="eager" decoding="async"></picture></span>
+          <picture><source srcset="assets/classic-d.avif" type="image/avif"><img src="assets/classic-d.jpg" alt="Classic template on a laptop" width="1000" height="626" loading="lazy" decoding="async"></picture></span>
         <span class="phone"><picture><source srcset="assets/classic-m.avif" type="image/avif"><img src="assets/classic-m.jpg" alt="Classic template on a phone" width="260" height="562" loading="lazy" decoding="async"></picture></span>
       </a>
       <div class="info">
@@ -282,17 +385,17 @@ h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.04
 
   <section class="cta" data-up>
     <h2>Seen one you like?</h2>
-    <p>Tell me which template and your clinic’s name. I’ll send a first version with your details before you pay anything.</p>
-    <div class="acts"><a class="btn btn-ink" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20website%20templates.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">Message me on WhatsApp <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="../index.html#work">See my other work</a></div>
+    <p>Tell me which design you liked and your clinic’s name. I’ll send a first version with your details before you pay anything.</p>
+    <div class="acts"><a class="btn btn-ink" href="https://wa.me/916387522891?text=Hi%20Harsh%2C%20I%20saw%20your%20dental%20websites.%20Can%20we%20talk%20about%20a%20website%20for%20my%20clinic%3F" target="_blank" rel="noopener">Message me on WhatsApp <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="../index.html#work">See my other work</a></div>
   </section>
 
-  <footer class="foot"><span>© 2026 Harsh Tripathi</span><span>Clinic names, doctors and numbers in the demos are made up for illustration.</span><a href="../index.html">Back to portfolio</a></footer>
+  <footer class="foot"><span>© 2026 Harsh Tripathi</span><span>Template demos use made-up clinics. Real-clinic sites are previews made from public information.</span><a href="../index.html">Back to portfolio</a></footer>
 </main>
 
 <script>
 (() => {
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const cards = $$('.card'), btns = $$('.filters button');
+  const cards = $$('#grid .card'), btns = $$('.filters button');
   btns.forEach(b => { const f = b.dataset.f; b.querySelector('small').textContent = f === 'all' ? cards.length : cards.filter(c => c.dataset.f.split(' ').includes(f)).length; });
   btns.forEach(b => b.addEventListener('click', () => {
     const f = b.dataset.f; btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
